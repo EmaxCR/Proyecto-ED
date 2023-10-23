@@ -4,10 +4,7 @@
  */
 package estructuradedatos_proyecto;
 
-/**
- *
- * @author emaa
- */
+
 class Jugador {
     
 

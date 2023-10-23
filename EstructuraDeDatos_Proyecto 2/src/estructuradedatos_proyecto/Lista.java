@@ -4,10 +4,7 @@
  */
 package estructuradedatos_proyecto;
 
-/**
- *
- * @author cesar
- */
+
 public class Lista {
     
     private Nodo cabeza;

@@ -4,10 +4,7 @@
  */
 package estructuradedatos_proyecto;
 
-/**
- *
- * @author cesar
- */
+
 public class Nodo {
     
     private Pokemon dato;

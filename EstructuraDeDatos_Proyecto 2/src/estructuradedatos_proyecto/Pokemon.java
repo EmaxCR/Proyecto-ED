@@ -4,12 +4,6 @@
  */
 package estructuradedatos_proyecto;
 
-import java.util.Objects;
-
-/**
- *
- * @author cesar
- */
 public class Pokemon{
     
     Tipo t;
@@ -68,17 +62,6 @@ public class Pokemon{
     // Estos dos metodos hacen que se puedan igualar las variables de la clase lista
     // sin estos el codigo ve como diferentes a las variables
     
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Pokemon persona = (Pokemon) o;
-        return id == persona.id;
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
     
 }
