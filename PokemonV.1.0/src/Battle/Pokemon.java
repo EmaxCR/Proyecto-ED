@@ -4,8 +4,7 @@
  */
 package Battle;
 
-
-
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -18,10 +17,12 @@ public class Pokemon{
     private Tipo tipo;
     private String nombre;
     private int id;
+    private ImageIcon img;
     
-    public Pokemon(String tipo, String nombre, int id){
+    public Pokemon(String tipo, String nombre, int id,ImageIcon img){
         this.nombre = nombre;
         this.id = id;
+        this.img = img;
         switch(tipo){
             case "Normal":
                 this.tipo = t.getNormal();
@@ -40,7 +41,6 @@ public class Pokemon{
                 this.tipo.setTipoString("Normal");
                 break;
         }
-        
     }
 
     public int getId() {

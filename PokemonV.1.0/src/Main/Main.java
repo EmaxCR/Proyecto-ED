@@ -4,15 +4,14 @@
  */
 package Main;
 
-import Battle.BattleLogic;
+import igu.Torneo;
 
 public class Main {
     public static void main(String args[]) {
         
-        BattleLogic battle = new BattleLogic();
-        
-        battle.setUp();
-        battle.start();
+       MainMenu menu = new MainMenu();
+       
+       menu.show();
         
     }
 }
