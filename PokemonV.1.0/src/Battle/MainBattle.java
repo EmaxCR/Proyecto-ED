@@ -13,16 +13,6 @@ import javax.swing.ImageIcon;
  * @author cesar
  */
 public class MainBattle extends javax.swing.JFrame {
-
-    ImageIcon pikachu = new ImageIcon("src/Images/Pikachu.png");
-    ImageIcon snorlax = new ImageIcon("src/Images/Pikachu.png");
-    ImageIcon charmander = new ImageIcon("src/Images/Pikachu.png");
-    ImageIcon squirtle = new ImageIcon("src/Images/Pikachu.png");
-    ImageIcon pikagfhjchu = new ImageIcon("src/Images/Pikachu.png");
-    ImageIcon ghj = new ImageIcon("src/Images/Pikachu.png");
-    ImageIcon fgh = new ImageIcon("src/Images/Pikachu.png");
-    ImageIcon hg = new ImageIcon("src/Images/Pikachu.png");
-    ImageIcon ghjf = new ImageIcon("src/Images/Pikachu.png");
     
     
     
@@ -167,7 +157,7 @@ public class MainBattle extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1007, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,7 +178,10 @@ public class MainBattle extends javax.swing.JFrame {
     }//GEN-LAST:event_JBAtaqueActionPerformed
 
     private void JBPokmnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBPokmnActionPerformed
-        JLPkmnPlayer.setIcon(pikachu);
+        
+        // Lista lista = BattleLogic.laLista;
+        
+        // JLPkmnPlayer.setIcon();
     }//GEN-LAST:event_JBPokmnActionPerformed
 
     /**
