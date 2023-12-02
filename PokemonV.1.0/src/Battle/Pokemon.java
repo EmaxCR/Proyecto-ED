@@ -65,6 +65,16 @@ public class Pokemon{
         this.nombre = nombre;
     }
 
+    public ImageIcon getImg() {
+        return img;
+    }
+
+    public void setImg(ImageIcon img) {
+        this.img = img;
+    }
+    
+    
+
     @Override
     public String toString() {
         return "Pokemon{" + "tipo=" + tipo.toString() + ", nombre=" + nombre + '}';

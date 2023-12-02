@@ -51,4 +51,5 @@ public class BattleLogic {
         MainBattle battle = new MainBattle();
         battle.show();
     }
+
 }

@@ -4,7 +4,11 @@
  */
 package Main;
 
+
 import Battle.BattleLogic;
+import TorneoMain.Torneo;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -90,10 +94,14 @@ public class MainMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBStartActionPerformed
-        BattleLogic battle = new BattleLogic();
+        Torneo torn = new Torneo();
         
+        torn.setVisible(true);
+        
+        BattleLogic battle = new BattleLogic();
         battle.setUp();
         battle.start();
+
     }//GEN-LAST:event_JBStartActionPerformed
 
     /**
