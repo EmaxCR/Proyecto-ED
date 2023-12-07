@@ -7,8 +7,6 @@ package Main;
 
 import Battle.BattleLogic;
 import TorneoMain.Torneo;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -100,7 +98,6 @@ public class MainMenu extends javax.swing.JFrame {
         
         BattleLogic battle = new BattleLogic();
         battle.setUp();
-        battle.start();
 
     }//GEN-LAST:event_JBStartActionPerformed
 

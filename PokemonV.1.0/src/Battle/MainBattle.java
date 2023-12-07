@@ -4,9 +4,6 @@
  */
 package Battle;
 
-import javax.swing.ImageIcon;
-
-
 
 /**
  *
@@ -40,12 +37,17 @@ public class MainBattle extends javax.swing.JFrame {
         JBAtaque = new javax.swing.JButton();
         JBAtaqueEsp = new javax.swing.JButton();
         JBPokmn = new javax.swing.JButton();
+        JPPokemon = new javax.swing.JPanel();
+        JBPokemon1 = new javax.swing.JButton();
+        JBPokemon3 = new javax.swing.JButton();
+        JBPokemon2 = new javax.swing.JButton();
+        JBPokemon4 = new javax.swing.JButton();
 
         jLabel2.setText("jLabel2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 204, 51));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         JLPkmnPlayer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/PokemonSpritesB/Charmander B.png"))); // NOI18N
         JLPkmnPlayer.setToolTipText("");
@@ -63,6 +65,8 @@ public class MainBattle extends javax.swing.JFrame {
         JLVidaTrainer.setText("0");
 
         JLPokmnTrainer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/PokemonSpritesF/Meowth.png"))); // NOI18N
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         JBAtaque.setText("Ataque");
         JBAtaque.addActionListener(new java.awt.event.ActionListener() {
@@ -85,6 +89,54 @@ public class MainBattle extends javax.swing.JFrame {
             }
         });
 
+        JPPokemon.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        JBPokemon1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBPokemon1ActionPerformed(evt);
+            }
+        });
+
+        JBPokemon3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBPokemon3ActionPerformed(evt);
+            }
+        });
+
+        JBPokemon2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBPokemon2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout JPPokemonLayout = new javax.swing.GroupLayout(JPPokemon);
+        JPPokemon.setLayout(JPPokemonLayout);
+        JPPokemonLayout.setHorizontalGroup(
+            JPPokemonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPPokemonLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(JBPokemon1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JBPokemon2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JBPokemon3, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JBPokemon4, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        JPPokemonLayout.setVerticalGroup(
+            JPPokemonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPPokemonLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(JPPokemonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(JBPokemon1, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                    .addGroup(JPPokemonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(JBPokemon2, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                        .addComponent(JBPokemon4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JBPokemon3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(0, 13, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -97,17 +149,22 @@ public class MainBattle extends javax.swing.JFrame {
                         .addComponent(JBAtaque, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JBAtaqueEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(JPPokemon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JBAtaqueEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JBAtaque, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JBPokmn, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(JPPokemon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(JBAtaqueEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JBAtaque, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JBPokmn, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
@@ -179,9 +236,20 @@ public class MainBattle extends javax.swing.JFrame {
     private void JBPokmnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBPokmnActionPerformed
         
         // Lista lista = BattleLogic.laLista;
-        
-        // JLPkmnPlayer.setIcon();
+        JPPokemon.setVisible(true);
     }//GEN-LAST:event_JBPokmnActionPerformed
+
+    private void JBPokemon1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBPokemon1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBPokemon1ActionPerformed
+
+    private void JBPokemon2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBPokemon2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBPokemon2ActionPerformed
+
+    private void JBPokemon3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBPokemon3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBPokemon3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,6 +258,10 @@ public class MainBattle extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBAtaque;
     private javax.swing.JButton JBAtaqueEsp;
+    private javax.swing.JButton JBPokemon1;
+    private javax.swing.JButton JBPokemon2;
+    private javax.swing.JButton JBPokemon3;
+    private javax.swing.JButton JBPokemon4;
     private javax.swing.JButton JBPokmn;
     private javax.swing.JLabel JLPkmnPlayer;
     private javax.swing.JLabel JLPokmnTrainer;
@@ -197,6 +269,7 @@ public class MainBattle extends javax.swing.JFrame {
     private javax.swing.JLabel JLVidaPlayerTitle;
     private javax.swing.JLabel JLVidaTrainer;
     private javax.swing.JLabel JLVidaTrainerTitle;
+    public javax.swing.JPanel JPPokemon;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

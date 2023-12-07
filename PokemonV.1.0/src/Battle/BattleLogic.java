@@ -4,6 +4,13 @@
  */
 package Battle;
 
+import Entrenador.Entrenador;
+import Entrenador.ListaT;
+import Equipo.Cola;
+import Pokemones.Pokemon;
+import Pokemones.Lista;
+import framemenu.Menu;
+
 /**
  *
  * @author cesar
@@ -11,6 +18,8 @@ package Battle;
 public class BattleLogic {
     public static Lista laListap= new Lista();
     public static Lista laListat= new Lista();
+    
+    public static ListaT listaTrainer = new ListaT();
     
     public void setUp(){
         
@@ -43,13 +52,33 @@ public class BattleLogic {
         
         System.out.println(laListap.toString());
         System.out.println(laListat.toString());
+        
+        
+        Cola eq1 = new Cola();
+        
+        Menu menuS = new Menu();
+        menuS.show();
+        
+        Cola eq2 = new Cola();
+        
+        
+        
+        Cola eq3 = new Cola();
+        
+        
+        
+        Cola eq4 = new Cola();
+        
+        
+        
+        
+        listaTrainer.inserta(new Entrenador(1, "Paco", eq1));
+        listaTrainer.inserta(new Entrenador(2, "Andrés", eq2));
+        listaTrainer.inserta(new Entrenador(3, "Gojo", eq3));
+        
+        
         System.out.println("Setup complete");
         
-    }
-    
-    public void start(){
-        MainBattle battle = new MainBattle();
-        battle.show();
     }
 
 }
