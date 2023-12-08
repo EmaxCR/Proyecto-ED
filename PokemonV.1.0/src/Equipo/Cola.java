@@ -23,7 +23,7 @@ public class Cola {
         }
     }
     
-    public NodoC atiende(){
+    public NodoC enfrenta(){
         NodoC aux = frente;
         if (frente != null){
             frente = frente.getAtras();

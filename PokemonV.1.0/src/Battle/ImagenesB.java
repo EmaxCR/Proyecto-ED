@@ -11,15 +11,15 @@ import javax.swing.ImageIcon;
  * @author cesar
  */
 public class ImagenesB {
-    ImageIcon Squirtle = new ImageIcon("src/Images/Pikachu.png");
-    ImageIcon Charmander = new ImageIcon("src/Images/Pikachu.png");
-    ImageIcon Snorlax = new ImageIcon("src/Images/Pikachu.png");
-    ImageIcon Magikarp = new ImageIcon("src/Images/Pikachu.png");
-    ImageIcon Slugma = new ImageIcon("src/Images/Pikachu.png");
-    ImageIcon Meowth = new ImageIcon("src/Images/Pikachu.png");
-    ImageIcon Lapras = new ImageIcon("src/Images/Pikachu.png");
-    ImageIcon Arcanine = new ImageIcon("src/Images/Pikachu.png");
-    ImageIcon Eevee = new ImageIcon("src/Images/Pikachu.png");
+    public static ImageIcon Squirtle = new ImageIcon("src/Images/Pikachu.png");
+    public static ImageIcon Charmander = new ImageIcon("src/Images/Pikachu.png");
+    public static ImageIcon Snorlax = new ImageIcon("src/Images/Pikachu.png");
+    public static ImageIcon Magikarp = new ImageIcon("src/Images/Pikachu.png");
+    public static ImageIcon Slugma = new ImageIcon("src/Images/Pikachu.png");
+    public static ImageIcon Meowth = new ImageIcon("src/Images/Pikachu.png");
+    public static ImageIcon Lapras = new ImageIcon("src/Images/Pikachu.png");
+    public static ImageIcon Arcanine = new ImageIcon("src/Images/Pikachu.png");
+    public static ImageIcon Eevee = new ImageIcon("src/Images/Pikachu.png");
 
     public ImageIcon getSquirtle() {
         return Squirtle;

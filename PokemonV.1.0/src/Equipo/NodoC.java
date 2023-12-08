@@ -4,25 +4,26 @@
  */
 package Equipo;
 
+import Pokemones.Pokemon;
 
 /**
  *
  * @author cesar
  */
 public class NodoC {
-    private Equipo dato; // Info que quiero guardar
+    private Pokemon pkmn; // Info que quiero guardar
     private NodoC atras; // Fija la referencia que sigue en la cola
 
-    public NodoC(Equipo dato, NodoC atras) {
-        this.dato = dato;
+    public NodoC(Pokemon dato) {
+        this.pkmn = pkmn;
     }
 
-    public Equipo getDato() {
-        return dato;
+    public Pokemon getDato() {
+        return pkmn;
     }
 
-    public void setDato(Equipo dato) {
-        this.dato = dato;
+    public void setDato(Pokemon dato) {
+        this.pkmn = dato;
     }
 
     public NodoC getAtras() {
@@ -35,7 +36,7 @@ public class NodoC {
 
     @Override
     public String toString() {
-        return "NodoC: "+ dato;
+        return "NodoC: "+ pkmn;
     }
     
     

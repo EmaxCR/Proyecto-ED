@@ -5,8 +5,7 @@
 package Main;
 
 
-import Battle.BattleLogic;
-import TorneoMain.Torneo;
+import framemenu.Menu;
 
 /**
  *
@@ -92,12 +91,10 @@ public class MainMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBStartActionPerformed
-        Torneo torn = new Torneo();
         
-        torn.setVisible(true);
-        
-        BattleLogic battle = new BattleLogic();
-        battle.setUp();
+        Menu menuS = new Menu();
+        menuS.setUpP();
+        menuS.show();
 
     }//GEN-LAST:event_JBStartActionPerformed
 

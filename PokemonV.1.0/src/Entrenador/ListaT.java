@@ -70,7 +70,19 @@ public class ListaT {
     cabeza = prev; // La nueva cabeza es el último nodo.
     }
 
+    public Entrenador buscar(int id){
+        
+        NodoT aux = cabeza;
 
+        while (aux != null) {
+            if (aux.getDato().getId() == id) {
+                return aux.getDato(); // Se encontró la coincidencia, devuelve el Pokemon
+            }
+            aux = aux.getNext();
+        }
+        
+        return null;
+    }
     
 
 
