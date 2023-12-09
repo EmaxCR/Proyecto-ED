@@ -542,7 +542,8 @@ public class Menu extends javax.swing.JFrame {
         battle.JPPokemon.setVisible(false);
         setUpTeam();
         battle.battleSetup(eq1, eq2);
-        battle.show();
+       
+        battle.setVisible(true);
         
     }//GEN-LAST:event_JBStartActionPerformed
 
