@@ -69,7 +69,7 @@ public class Torneo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel JLTorneo;
+    public javax.swing.JLabel JLTorneo;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

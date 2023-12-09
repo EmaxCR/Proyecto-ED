@@ -13,15 +13,15 @@ import javax.swing.ImageIcon;
 public class Imagenes {
     
     
-    ImageIcon Squirtle = new ImageIcon("/Battle/Squirtle.png");
-    ImageIcon Charmander = new ImageIcon("/Battle/Charmander.png");
-    ImageIcon Snorlax = new ImageIcon("/Battle/Snorlax.png");
-    ImageIcon Magikarp = new ImageIcon("/Battle/Magikarp.png");
-    ImageIcon Slugma = new ImageIcon("/Battle/Slugma.png");
-    ImageIcon Meowth = new ImageIcon("/Battle/Meowth.png");
-    ImageIcon Lapras = new ImageIcon("/Battle/Lapras.png");
-    ImageIcon Arcanine = new ImageIcon("/Battle/Arcaine.jpg");
-    ImageIcon Eevee = new ImageIcon("/Battle/Eevee.png");
+    ImageIcon Squirtle = new ImageIcon("src/Battle/Squirtle.png");
+    ImageIcon Charmander = new ImageIcon("src/Battle/Charmander.png");
+    ImageIcon Snorlax = new ImageIcon("src/Battle/Snorlax.png");
+    ImageIcon Magikarp = new ImageIcon("src/Battle/Magikarp.png");
+    ImageIcon Slugma = new ImageIcon("src/Battle/Slugma.png");
+    ImageIcon Meowth = new ImageIcon("src/Battle/Meowth.png");
+    ImageIcon Lapras = new ImageIcon("src/Battle/Lapras.png");
+    ImageIcon Arcanine = new ImageIcon("src/Battle/Arcanine.jpg");
+    ImageIcon Eevee = new ImageIcon("src/Battle/Eevee.png");
 
     public ImageIcon getSquirtle() {
         return Squirtle;

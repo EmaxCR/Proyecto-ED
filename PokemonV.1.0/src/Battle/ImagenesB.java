@@ -11,15 +11,15 @@ import javax.swing.ImageIcon;
  * @author cesar
  */
 public class ImagenesB {
-    public ImageIcon Squirtle = new ImageIcon("/Battle/SquirtleB.jpg");
-    public ImageIcon Charmander = new ImageIcon("/Battle/CharmanderB.png");
-    public ImageIcon Snorlax = new ImageIcon("/Battle/SnorlaxB.jpg");
-    public ImageIcon Magikarp = new ImageIcon("/Battle/MagikarpB.jpg");
-    public ImageIcon Slugma = new ImageIcon("/Battle/SlugmaB.png");
-    public ImageIcon Meowth = new ImageIcon("/Battle/MeowthB.jpg");
-    public ImageIcon Lapras = new ImageIcon("/Battle/LaprasB.png");
-    public ImageIcon Arcanine = new ImageIcon("/Battle/ArcanineB.png");
-    public ImageIcon Eevee = new ImageIcon("/Battle/EeveeB.jpg");
+    public ImageIcon Squirtle = new ImageIcon("src/Battle/SquirtleB.jpg");
+    public ImageIcon Charmander = new ImageIcon("src/Battle/CharmanderB.png");
+    public ImageIcon Snorlax = new ImageIcon("src/Battle/SnorlaxB.jpg");
+    public ImageIcon Magikarp = new ImageIcon("src/Battle/MagikarpB.jpg");
+    public ImageIcon Slugma = new ImageIcon("src/Battle/SlugmaB.png");
+    public ImageIcon Meowth = new ImageIcon("src/Battle/MeowthB.jpg");
+    public ImageIcon Lapras = new ImageIcon("src/Battle/LaprasB.png");
+    public ImageIcon Arcanine = new ImageIcon("src/Battle/ArcanineB.png");
+    public ImageIcon Eevee = new ImageIcon("src/Battle/EeveeB.jpg");
 
     public ImageIcon getSquirtle() {
         return Squirtle;

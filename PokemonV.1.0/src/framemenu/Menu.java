@@ -13,6 +13,7 @@ import Equipo.Cola;
 import Equipo.NodoC;
 import Pokemones.Lista;
 import Pokemones.Pokemon;
+import TorneoMain.Torneo;
 import java.awt.Graphics;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -537,12 +538,11 @@ public class Menu extends javax.swing.JFrame {
 
     private void JBStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBStartActionPerformed
         // TODO add your handling code here:
-        // this.setVisible(false);
+        this.setVisible(false);
         MainBattle battle = new MainBattle();
         battle.JPPokemon.setVisible(false);
         setUpTeam();
         battle.battleSetup(eq1, eq2);
-       
         battle.setVisible(true);
         
     }//GEN-LAST:event_JBStartActionPerformed

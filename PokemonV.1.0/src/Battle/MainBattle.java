@@ -6,6 +6,8 @@ package Battle;
 
 import Equipo.Cola;
 import Equipo.NodoC;
+import TorneoMain.Torneo;
+import javax.swing.ImageIcon;
 
 
 /**
@@ -14,7 +16,10 @@ import Equipo.NodoC;
  */
 public class MainBattle extends javax.swing.JFrame {
     
+    Torneo tor = new Torneo();
+    
     int count=0;
+    int entrenadoresDerrotados = 0;
     
     Cola player;
     Cola trainer;
@@ -41,6 +46,9 @@ public class MainBattle extends javax.swing.JFrame {
         
         JLVidaPlayer.setText(String.valueOf(pkmnplayer.getDato().getTipo().getHp()));
         JLVidaTrainer.setText(String.valueOf(pkmnrival.getDato().getTipo().getHp()));
+        
+        tor.show();
+        
     }
     
     /**
@@ -178,6 +186,12 @@ public class MainBattle extends javax.swing.JFrame {
             }
         });
 
+        JBPokemon4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBPokemon4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout JPPokemonLayout = new javax.swing.GroupLayout(JPPokemon);
         JPPokemon.setLayout(JPPokemonLayout);
         JPPokemonLayout.setHorizontalGroup(
@@ -261,19 +275,77 @@ public class MainBattle extends javax.swing.JFrame {
     }//GEN-LAST:event_JBAtaqueEspActionPerformed
 
     private void JBAtaqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAtaqueActionPerformed
+        
+        boolean ataca = true;
+        
         double ataque = pkmnplayer.getDato().getTipo().getAtaque();
         double vidaR= pkmnrival.getDato().getTipo().getHp();
-        double defensa= pkmnrival.getDato().getTipo().getDefensa();
+        double defensaR= pkmnrival.getDato().getTipo().getDefensa();
         
         int defiende= (int)(Math.random()*3)+1;
         
+        // Turno 1
+        
         if (defiende==1){
-            pkmnrival.getDato().getTipo().setHp(vidaR-(defensa-ataque));
+            pkmnrival.getDato().getTipo().setHp(vidaR-Math.abs(defensaR-ataque));
+            if(pkmnrival.getDato().getTipo().getHp() <= 0){
+                pkmnrival = trainer.enfrenta();
+                if (pkmnrival == null){
+                    entrenadoresDerrotados++;
+                    if(entrenadoresDerrotados==1){
+                        tor.JLTorneo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TorneoImg/Torneo2.png")));
+                    }else if(entrenadoresDerrotados==2){
+                        tor.JLTorneo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TorneoImg/Torneo3.png")));
+                    }else if(entrenadoresDerrotados==3){
+                        tor.JLTorneo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TorneoImg/Winner.png")));
+                    }
+                }
+            }
         }
         else{
             pkmnrival.getDato().getTipo().setHp(vidaR - ataque);
+            if(pkmnrival.getDato().getTipo().getHp() <= 0){
+                pkmnrival = trainer.enfrenta();
+                ataca = false;
+                if (pkmnrival == null){
+                    tor.JLTorneo.setIcon(new ImageIcon("TorneoImg/Torneo2.png"));
+                }
+            }
         }
+        JLVidaTrainer.setText(String.valueOf(pkmnrival.getDato().getTipo().getHp()));
+        JLPokmnTrainer.setText(pkmnrival.getDato().getNombre()+" "+pkmnrival.getDato().getTipo());
         
+        // Turno 2
+        if(ataca==true){
+            double ataqueR = pkmnrival.getDato().getTipo().getAtaque();
+            double vida= pkmnplayer.getDato().getTipo().getHp();
+            double defensa= pkmnplayer.getDato().getTipo().getDefensa();
+
+            defiende= (int)(Math.random()*3)+1;
+
+            if (defiende==1){
+                pkmnplayer.getDato().getTipo().setHp(vida-Math.abs(defensa-ataqueR));
+                if(pkmnplayer.getDato().getTipo().getHp() <= 0){
+                    pkmnplayer = player.enfrenta();
+                    if (pkmnplayer == null){
+                        tor.JLTorneo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TorneoImg/Game_Over.png")));
+                    }
+                }
+            }
+            else{
+                pkmnplayer.getDato().getTipo().setHp(vida - ataque);
+                if(pkmnplayer.getDato().getTipo().getHp() <= 0){
+                    pkmnplayer = player.enfrenta();
+                    if (pkmnplayer == null){
+                        tor.JLTorneo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TorneoImg/Game_Over.png")));
+                    }
+                }
+            }
+            JLVidaPlayer.setText(String.valueOf(pkmnplayer.getDato().getTipo().getHp()));
+            JLPkmnPlayer.setText(pkmnplayer.getDato().getNombre()+" "+pkmnplayer.getDato().getTipo());
+        }else{
+            ataca=true;
+        }
     }//GEN-LAST:event_JBAtaqueActionPerformed
 
     private void JBPokmnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBPokmnActionPerformed
@@ -299,6 +371,10 @@ public class MainBattle extends javax.swing.JFrame {
     private void JBPokemon3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBPokemon3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JBPokemon3ActionPerformed
+
+    private void JBPokemon4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBPokemon4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBPokemon4ActionPerformed
 
     /**
      * @param args the command line arguments
