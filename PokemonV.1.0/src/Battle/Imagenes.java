@@ -11,15 +11,17 @@ import javax.swing.ImageIcon;
  * @author cesar
  */
 public class Imagenes {
-    ImageIcon Squirtle = new ImageIcon("src/Images/Pikachu.png");
-    ImageIcon Charmander = new ImageIcon("src/Images/Pikachu.png");
-    ImageIcon Snorlax = new ImageIcon("src/Images/Pikachu.png");
-    ImageIcon Magikarp = new ImageIcon("src/Images/Pikachu.png");
-    ImageIcon Slugma = new ImageIcon("src/Images/Pikachu.png");
-    ImageIcon Meowth = new ImageIcon("src/Images/Pikachu.png");
-    ImageIcon Lapras = new ImageIcon("src/Images/Pikachu.png");
-    ImageIcon Arcanine = new ImageIcon("src/Images/Pikachu.png");
-    ImageIcon Eevee = new ImageIcon("src/Images/Pikachu.png");
+    
+    
+    ImageIcon Squirtle = new ImageIcon("Battle/Squirtle.png");
+    ImageIcon Charmander = new ImageIcon("Battle/Charmander.png");
+    ImageIcon Snorlax = new ImageIcon("Battle/Snorlax.png");
+    ImageIcon Magikarp = new ImageIcon("Battle/Magikarp.png");
+    ImageIcon Slugma = new ImageIcon("Battle/Slugma.png");
+    ImageIcon Meowth = new ImageIcon("Battle/Meowth.png");
+    ImageIcon Lapras = new ImageIcon("Battle/Lapras.png");
+    ImageIcon Arcanine = new ImageIcon("Battle/Arcaine.jpg");
+    ImageIcon Eevee = new ImageIcon("Battle/Eevee.png");
 
     public ImageIcon getSquirtle() {
         return Squirtle;

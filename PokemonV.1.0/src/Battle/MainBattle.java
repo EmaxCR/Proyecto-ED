@@ -4,7 +4,6 @@
  */
 package Battle;
 
-import Entrenador.Entrenador;
 import Equipo.Cola;
 import Equipo.NodoC;
 
@@ -15,16 +14,22 @@ import Equipo.NodoC;
  */
 public class MainBattle extends javax.swing.JFrame {
     
-    public void battleSetup(Cola player,  Cola trainer){
+    Cola player;
+    Cola trainer;
+    
+    public void battleSetup(Cola Player,  Cola Trainer){
+        
+        this.player = Player;
+        this.trainer = Trainer;
         
         NodoC pkmnplayer = player.enfrenta();
-        NodoC pkmnrival = player.enfrenta();
+        NodoC pkmnrival = trainer.enfrenta();
         
         JLPkmnPlayer.setIcon(pkmnplayer.getDato().getImg());
         JLPokmnTrainer.setIcon(pkmnrival.getDato().getImg());
         
         JLVidaPlayer.setText(String.valueOf(pkmnplayer.getDato().getTipo().getHp()));
-        JLPokmnTrainer.setText(String.valueOf(pkmnrival.getDato().getTipo().getHp()));
+        JLVidaTrainer.setText(String.valueOf(pkmnrival.getDato().getTipo().getHp()));
     }
     
     /**

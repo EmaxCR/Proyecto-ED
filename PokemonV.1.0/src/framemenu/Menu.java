@@ -5,6 +5,7 @@
 package framemenu;
 
 import Battle.Imagenes;
+import Battle.ImagenesB;
 import Battle.MainBattle;
 import Entrenador.Entrenador;
 import Entrenador.ListaT;
@@ -23,13 +24,13 @@ import javax.swing.JPanel;
 public class Menu extends javax.swing.JFrame {
     
     static Imagenes imgf = new Imagenes();
-    static Imagenes imgb = new Imagenes();
+    static ImagenesB imgb = new ImagenesB();
     
     private int contador = 0;
-    static public Pokemon pk1 = new Pokemon("Agua", "Squirtle", 1, imgb.getSquirtle());
-    static public Pokemon pk2 = new Pokemon("Agua", "Squirtle", 1, imgb.getSquirtle());;
-    static public Pokemon pk3 = new Pokemon("Agua", "Squirtle", 1, imgb.getSquirtle());;
-    static public Pokemon pk4 = new Pokemon("Agua", "Squirtle", 1, imgb.getSquirtle());;
+    static public NodoC pk1 = new NodoC(new Pokemon("Agua", "Squirtle", 1, imgb.getSquirtle()));
+    static public NodoC pk2 = new NodoC(new Pokemon("Agua", "Squirtle", 1, imgb.getSquirtle()));
+    static public NodoC pk3 = new NodoC(new Pokemon("Agua", "Squirtle", 1, imgb.getSquirtle()));
+    static public NodoC pk4 = new NodoC(new Pokemon("Agua", "Squirtle", 1, imgb.getSquirtle()));
     
     public static Lista laListap= new Lista();
     public static Lista laListat= new Lista();
@@ -45,7 +46,15 @@ public class Menu extends javax.swing.JFrame {
     
     ImagenFondo ejemplo = new ImagenFondo();
     
+    static public NodoC aux1 = new NodoC(new Pokemon("Agua", "Squirtle", 1, imgb.getSquirtle()));
+    static public NodoC aux2 = new NodoC(new Pokemon("Agua", "Squirtle", 1, imgb.getSquirtle()));
+    static public NodoC aux3 = new NodoC(new Pokemon("Agua", "Squirtle", 1, imgb.getSquirtle()));
+    static public NodoC aux4 = new NodoC(new Pokemon("Agua", "Squirtle", 1, imgb.getSquirtle()));
+    
+    
+    
     public void setUpP(){
+        
         
         laListap.inserta(new Pokemon("Agua", "Squirtle", 1, imgb.getSquirtle()));
         laListap.inserta(new Pokemon("Fuego", "Charmander", 2,imgb.getCharmander()));
@@ -75,34 +84,49 @@ public class Menu extends javax.swing.JFrame {
     
     public void setUpTeam(){
         
-        System.out.println(pk1);
-        eq1.encola(new NodoC(pk1));
-        eq1.encola(new NodoC(pk2));
-        eq1.encola(new NodoC(pk3));
-        eq1.encola(new NodoC(pk4));
+        eq1.encola(pk1);
+        eq1.encola(pk2);
+        eq1.encola(pk3);
+        eq1.encola(pk4);
         
         System.out.println(eq1);
         
-        System.out.println(laListat.buscar((int)(Math.random()*10)));
-        eq2.encola(new NodoC(laListat.buscar((int)(Math.random()*10))));
-        System.out.println(eq2.enfrenta());
-        eq2.encola(new NodoC(laListat.buscar((int)(Math.random()*10))));
-        eq2.encola(new NodoC(laListat.buscar((int)(Math.random()*10))));
-        eq2.encola(new NodoC(laListat.buscar((int)(Math.random()*10))));
+        aux1.setDato(laListat.buscar((int)(Math.random()*9+1)));
+        aux2.setDato(laListat.buscar((int)(Math.random()*9+1)));
+        aux3.setDato(laListat.buscar((int)(Math.random()*9+1)));
+        aux4.setDato(laListat.buscar((int)(Math.random()*9+1)));
+        
+        
+        eq2.encola(aux1);
+        eq2.encola(aux2);
+        eq2.encola(aux3);
+        eq2.encola(aux4);
         
         System.out.println(eq2);
         
-        eq3.encola(new NodoC(laListat.buscar((int)(Math.random()*10))));
-        eq3.encola(new NodoC(laListat.buscar((int)(Math.random()*10))));
-        eq3.encola(new NodoC(laListat.buscar((int)(Math.random()*10))));
-        eq3.encola(new NodoC(laListat.buscar((int)(Math.random()*10))));
+        aux1.setDato(laListat.buscar((int)(Math.random()*9+1)));
+        aux2.setDato(laListat.buscar((int)(Math.random()*9+1)));
+        aux3.setDato(laListat.buscar((int)(Math.random()*9+1)));
+        aux4.setDato(laListat.buscar((int)(Math.random()*9+1)));
+        
+        
+        eq3.encola(aux1);
+        eq3.encola(aux2);
+        eq3.encola(aux3);
+        eq3.encola(aux4);
         
         System.out.println(eq3);
         
-        eq4.encola(new NodoC(laListat.buscar((int)(Math.random()*10))));
-        eq4.encola(new NodoC(laListat.buscar((int)(Math.random()*10))));
-        eq4.encola(new NodoC(laListat.buscar((int)(Math.random()*10))));
-        eq4.encola(new NodoC(laListat.buscar((int)(Math.random()*10))));
+        aux1.setDato(laListat.buscar((int)(Math.random()*9+1)));
+        aux2.setDato(laListat.buscar((int)(Math.random()*9+1)));
+        aux3.setDato(laListat.buscar((int)(Math.random()*9+1)));
+        aux4.setDato(laListat.buscar((int)(Math.random()*9+1)));
+        
+        
+        eq4.encola(aux1);
+        eq4.encola(aux2);
+        eq4.encola(aux3);
+        eq4.encola(aux4);
         
         System.out.println(eq4);
         
@@ -213,6 +237,10 @@ public class Menu extends javax.swing.JFrame {
         JLTitle.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         JLTitle.setText("ELIGE 4 POKEMONES:");
 
+        JLWarning.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        JLWarning.setForeground(new java.awt.Color(255, 0, 0));
+        JLWarning.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         JBStart.setText("Start");
         JBStart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -296,18 +324,18 @@ public class Menu extends javax.swing.JFrame {
         switch(contador){
             case 1:
                 System.out.println(laListap.buscar(2));
-                pk1 = laListap.buscar(2);
+                pk1.setDato(laListap.buscar(2));
                 System.out.println(laListap.buscar(2));
                 System.out.println(pk1);
                 break;
             case 2:
-                pk2 = laListap.buscar(2);
+                pk2.setDato(laListap.buscar(2));
                 break;
             case 3:
-                pk3 = laListap.buscar(2);
+                pk3.setDato(laListap.buscar(2));
                 break;
             case 4:
-                pk4 = laListap.buscar(2);
+                pk4.setDato(laListap.buscar(2));
                 break;
             default:
                 JLWarning.setText("No se pueden agregar más de 4 Pokémon!");
@@ -323,16 +351,16 @@ public class Menu extends javax.swing.JFrame {
         
         switch(contador){
             case 1:
-                pk1 = laListap.buscar(7);
+                pk1.setDato(laListap.buscar(7));
                 break;
             case 2:
-                pk2 = laListap.buscar(7);
+                pk2.setDato(laListap.buscar(7));
                 break;
             case 3:
-                pk3 = laListap.buscar(7);
+                pk3.setDato(laListap.buscar(7));
                 break;
             case 4:
-                pk4 = laListap.buscar(7);
+                pk4.setDato(laListap.buscar(7));
                 break;
             default:
                 JLWarning.setText("No se pueden agregar más de 4 Pokémon!");
@@ -346,16 +374,16 @@ public class Menu extends javax.swing.JFrame {
         
         switch(contador){
             case 1:
-                pk1 = laListap.buscar(1);
+                pk1.setDato(laListap.buscar(1));
                 break;
             case 2:
-                pk2 = laListap.buscar(1);
+                pk2.setDato(laListap.buscar(1));
                 break;
             case 3:
-                pk3 = laListap.buscar(1);
+                pk3.setDato(laListap.buscar(1));
                 break;
             case 4:
-                pk4 = laListap.buscar(1);
+                pk4.setDato(laListap.buscar(1));
                 break;
             default:
                 JLWarning.setText("No se pueden agregar más de 4 Pokémon!");
@@ -369,16 +397,16 @@ public class Menu extends javax.swing.JFrame {
         
         switch(contador){
             case 1:
-                pk1 = laListap.buscar(3);
+                pk1.setDato(laListap.buscar(3));
                 break;
             case 2:
-                pk2 = laListap.buscar(3);
+                pk2.setDato(laListap.buscar(3));
                 break;
             case 3:
-                pk3 = laListap.buscar(3);
+                pk3.setDato(laListap.buscar(3));
                 break;
             case 4:
-                pk4 = laListap.buscar(3);
+                pk4.setDato(laListap.buscar(3));
                 break;
             default:
                 JLWarning.setText("No se pueden agregar más de 4 Pokémon!");
@@ -392,16 +420,16 @@ public class Menu extends javax.swing.JFrame {
         
         switch(contador){
             case 1:
-                pk1 = laListap.buscar(5);
+                pk1.setDato(laListap.buscar(5));
                 break;
             case 2:
-                pk2 = laListap.buscar(5);
+                pk2.setDato(laListap.buscar(5));
                 break;
             case 3:
-                pk3 = laListap.buscar(5);
+                pk3.setDato(laListap.buscar(5));
                 break;
             case 4:
-                pk4 = laListap.buscar(5);
+                pk4.setDato(laListap.buscar(5));
                 break;
             default:
                 JLWarning.setText("No se pueden agregar más de 4 Pokémon!");
@@ -416,16 +444,16 @@ public class Menu extends javax.swing.JFrame {
         
         switch(contador){
             case 1:
-                pk1 = laListap.buscar(9);
+                pk1.setDato(laListap.buscar(9));
                 break;
             case 2:
-                pk2 = laListap.buscar(9);
+                pk2.setDato(laListap.buscar(9));
                 break;
             case 3:
-                pk3 = laListap.buscar(9);
+                pk3.setDato(laListap.buscar(9));
                 break;
             case 4:
-                pk4 = laListap.buscar(9);
+                pk4.setDato(laListap.buscar(9));
                 break;
             default:
                 JLWarning.setText("No se pueden agregar más de 4 Pokémon!");
@@ -440,21 +468,22 @@ public class Menu extends javax.swing.JFrame {
         
         switch(contador){
             case 1:
-                pk1 = laListap.buscar(8);
+                pk1.setDato(laListap.buscar(8));
                 break;
             case 2:
-                pk2 = laListap.buscar(8);
+                pk2.setDato(laListap.buscar(8));
                 break;
             case 3:
-                pk3 = laListap.buscar(8);
+                pk3.setDato(laListap.buscar(8));
                 break;
             case 4:
-                pk4 = laListap.buscar(8);
+                pk4.setDato(laListap.buscar(8));
                 break;
             default:
                 JLWarning.setText("No se pueden agregar más de 4 Pokémon!");
         }
 
+        
         
     }//GEN-LAST:event_JBArcanineActionPerformed
 
@@ -464,16 +493,16 @@ public class Menu extends javax.swing.JFrame {
         
         switch(contador){
             case 1:
-                pk1 = laListap.buscar(4);
+                pk1.setDato(laListap.buscar(4));
                 break;
             case 2:
-                pk2 = laListap.buscar(4);
+                pk2.setDato(laListap.buscar(4));
                 break;
             case 3:
-                pk3 = laListap.buscar(4);
+                pk3.setDato(laListap.buscar(4));
                 break;
             case 4:
-                pk4 = laListap.buscar(4);
+                pk4.setDato(laListap.buscar(4));
                 break;
             default:
                 JLWarning.setText("No se pueden agregar más de 4 Pokémon!");
@@ -489,31 +518,30 @@ public class Menu extends javax.swing.JFrame {
         
         switch(contador){
             case 1:
-                pk1 = laListap.buscar(6);
+                pk1.setDato(laListap.buscar(6));
                 break;
             case 2:
-                pk2 = laListap.buscar(6);
+                pk2.setDato(laListap.buscar(6));
                 break;
             case 3:
-                pk3 = laListap.buscar(6);
+                pk3.setDato(laListap.buscar(6));
                 break;
             case 4:
-                pk4 = laListap.buscar(6);
+                pk4.setDato(laListap.buscar(6));
                 break;
             default:
                 JLWarning.setText("No se pueden agregar más de 4 Pokémon!");
         }
-
         
     }//GEN-LAST:event_MeowthActionPerformed
 
     private void JBStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBStartActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
+        // this.setVisible(false);
         MainBattle battle = new MainBattle();
         battle.JPPokemon.setVisible(false);
         setUpTeam();
-        // battle.battleSetup();
+        battle.battleSetup(eq1, eq2);
         battle.show();
         
     }//GEN-LAST:event_JBStartActionPerformed
