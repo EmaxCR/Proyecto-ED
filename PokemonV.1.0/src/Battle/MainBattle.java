@@ -24,8 +24,10 @@ public class MainBattle extends javax.swing.JFrame {
     
     boolean ataca = true;
     boolean atacap = true;
+    
     Cola player;
     Cola playerReset;
+    Cola playerReset2;
     Cola trainer;
     Cola trainer2;
     Cola trainer3;
@@ -57,6 +59,7 @@ public class MainBattle extends javax.swing.JFrame {
         JLVidaTrainer.setText(String.valueOf(pkmnrival.getDato().getTipo().getHp()));
         
         tor.show();
+        
         
     }
     
@@ -344,15 +347,25 @@ public class MainBattle extends javax.swing.JFrame {
                                 entrenadoresDerrotados++;
                                 if(entrenadoresDerrotados==1){
                                     tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Torneo2.png"));
-                                    trainer = trainer2;
+                                    while(trainer2.enfrenta().getDato() != null){
+                                        trainer.encola(trainer2.enfrenta());
+                                    }
                                     pkmnrival = trainer.enfrenta();
-                                    player = playerReset;
+                                    while(playerReset.enfrenta().getDato() != null){
+                                        player.encola(playerReset.enfrenta());
+                                    }
                                     pkmnplayer = player.enfrenta();
                                     JLInfo.setText("Combate 2");
                                 }else if(entrenadoresDerrotados==2){
                                     tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Torneo3.png"));
-                                    trainer = trainer3;
+                                    while(trainer3.enfrenta().getDato() != null){
+                                        trainer.encola(trainer3.enfrenta());
+                                    }
                                     pkmnrival = trainer.enfrenta();
+                                    while(playerReset.enfrenta().getDato() != null){
+                                        player.encola(playerReset2.enfrenta());
+                                    }
+                                    pkmnplayer = player.enfrenta();
                                     JLInfo.setText("Combate 3");
                                 }else if(entrenadoresDerrotados==3){
                                     tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Winner.png"));
@@ -373,15 +386,25 @@ public class MainBattle extends javax.swing.JFrame {
                                 entrenadoresDerrotados++;
                                 if(entrenadoresDerrotados==1){
                                     tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Torneo2.png"));
-                                    trainer = trainer2;
+                                    while(trainer2.enfrenta().getDato() != null){
+                                        trainer.encola(trainer2.enfrenta());
+                                    }
                                     pkmnrival = trainer.enfrenta();
-                                    player = playerReset;
+                                    while(playerReset.enfrenta().getDato() != null){
+                                        player.encola(playerReset.enfrenta());
+                                    }
                                     pkmnplayer = player.enfrenta();
                                     JLInfo.setText("Combate 2");
                                 }else if(entrenadoresDerrotados==2){
                                     tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Torneo3.png"));
-                                    trainer = trainer3;
+                                    while(trainer3.enfrenta().getDato() != null){
+                                        trainer.encola(trainer3.enfrenta());
+                                    }
                                     pkmnrival = trainer.enfrenta();
+                                    while(playerReset.enfrenta().getDato() != null){
+                                        player.encola(playerReset2.enfrenta());
+                                    }
+                                    pkmnplayer = player.enfrenta();
                                     JLInfo.setText("Combate 3");
                                 }else if(entrenadoresDerrotados==3){
                                     tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Winner.png"));
@@ -512,36 +535,74 @@ public class MainBattle extends javax.swing.JFrame {
             pkmnrival.getDato().getTipo().setHp(vidaR-Math.abs(defensaR-ataque));
             if(pkmnrival.getDato().getTipo().getHp() <= 0){
                 pkmnrival = trainer.enfrenta();
-                if (pkmnrival == null){
-                    entrenadoresDerrotados++;
-                    if(entrenadoresDerrotados==1){
-                        tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Torneo2.png"));
-                        trainer = trainer2;
-                        pkmnrival = trainer.enfrenta();
-                        player = playerReset;
-                        pkmnplayer = player.enfrenta();
-                        JLInfo.setText("Combate 2");
-                    }else if(entrenadoresDerrotados==2){
-                        tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Torneo3.png"));
-                        trainer = trainer3;
-                        pkmnrival = trainer.enfrenta();
-                        JLInfo.setText("Combate 3");
-                    }else if(entrenadoresDerrotados==3){
-                        tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Winner.png"));
-                        this.setVisible(false);
-                    }
-                }
+                if(pkmnrival.getDato().getTipo().getHp() <= 0){
+                            pkmnrival = trainer.enfrenta();
+                            if (pkmnrival == null){
+                                entrenadoresDerrotados++;
+                                if(entrenadoresDerrotados==1){
+                                    tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Torneo2.png"));
+                                    while(trainer2.enfrenta().getDato() != null){
+                                        trainer.encola(trainer2.enfrenta());
+                                    }
+                                    pkmnrival = trainer.enfrenta();
+                                    while(playerReset.enfrenta().getDato() != null){
+                                        player.encola(playerReset.enfrenta());
+                                    }
+                                    pkmnplayer = player.enfrenta();
+                                    JLInfo.setText("Combate 2");
+                                }else if(entrenadoresDerrotados==2){
+                                    tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Torneo3.png"));
+                                    while(trainer3.enfrenta().getDato() != null){
+                                        trainer.encola(trainer3.enfrenta());
+                                    }
+                                    pkmnrival = trainer.enfrenta();
+                                    while(playerReset.enfrenta().getDato() != null){
+                                        player.encola(playerReset2.enfrenta());
+                                    }
+                                    pkmnplayer = player.enfrenta();
+                                    JLInfo.setText("Combate 3");
+                                }else if(entrenadoresDerrotados==3){
+                                    tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Winner.png"));
+                                    this.setVisible(false);
+                                }
+                            }
+                        }
             }
         }
         else{
             pkmnrival.getDato().getTipo().setHp(vidaR - ataque);
             if(pkmnrival.getDato().getTipo().getHp() <= 0){
-                pkmnrival = trainer.enfrenta();
-                ataca = false;
-                if (pkmnrival == null){
-                    tor.JLTorneo.setIcon(new ImageIcon("src/TorneoImg/Torneo2.png"));
-                }
-            }
+                            pkmnrival = trainer.enfrenta();
+                            if (pkmnrival == null){
+                                entrenadoresDerrotados++;
+                                if(entrenadoresDerrotados==1){
+                                    tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Torneo2.png"));
+                                    while(trainer2.enfrenta().getDato() != null){
+                                        trainer.encola(trainer2.enfrenta());
+                                    }
+                                    pkmnrival = trainer.enfrenta();
+                                    while(playerReset.enfrenta().getDato() != null){
+                                        player.encola(playerReset.enfrenta());
+                                    }
+                                    pkmnplayer = player.enfrenta();
+                                    JLInfo.setText("Combate 2");
+                                }else if(entrenadoresDerrotados==2){
+                                    tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Torneo3.png"));
+                                    while(trainer3.enfrenta().getDato() != null){
+                                        trainer.encola(trainer3.enfrenta());
+                                    }
+                                    pkmnrival = trainer.enfrenta();
+                                    while(playerReset.enfrenta().getDato() != null){
+                                        player.encola(playerReset2.enfrenta());
+                                    }
+                                    pkmnplayer = player.enfrenta();
+                                    JLInfo.setText("Combate 3");
+                                }else if(entrenadoresDerrotados==3){
+                                    tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Winner.png"));
+                                    this.setVisible(false);
+                                }
+                            }
+                        }
         }
         JLVidaTrainer.setText(String.valueOf(pkmnrival.getDato().getTipo().getHp()));
         //JLPokmnTrainer.setText(pkmnrival.getDato().getNombre()+" "+pkmnrival.getDato().getTipo());
