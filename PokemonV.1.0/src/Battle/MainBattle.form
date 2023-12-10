@@ -58,22 +58,27 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <Component id="JLVidaPlayerTitle" min="-2" pref="53" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="JLVidaPlayer" min="-2" pref="55" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="JLVidaTrainerTitle" min="-2" pref="50" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                                  <Component id="JLVidaTrainer" min="-2" pref="55" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="JLPokmnTrainer" alignment="1" min="-2" pref="225" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <Component id="JLPkmnPlayer" min="-2" pref="234" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="JLVidaTrainerTitle" min="-2" pref="50" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                          <Component id="JLVidaTrainer" min="-2" pref="55" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="JLPkmnPlayer" min="-2" pref="225" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
+                          <Component id="JLInfo" min="-2" pref="214" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="JLPokmnTrainer" alignment="1" min="-2" pref="194" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -94,14 +99,16 @@
                               <Component id="JLVidaPlayer" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="JLPkmnPlayer" min="-2" pref="197" max="-2" attributes="0"/>
+                          <Component id="JLPkmnPlayer" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="JLPokmnTrainer" min="-2" pref="190" max="-2" attributes="0"/>
+                          <Component id="JLPokmnTrainer" min="-2" pref="225" max="-2" attributes="0"/>
+                          <EmptySpace pref="41" max="32767" attributes="0"/>
+                          <Component id="JLInfo" min="-2" pref="20" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="28" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -151,6 +158,8 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="JLInfo">
         </Component>
       </SubComponents>
     </Container>

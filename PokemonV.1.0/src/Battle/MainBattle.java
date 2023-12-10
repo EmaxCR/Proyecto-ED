@@ -6,6 +6,7 @@ package Battle;
 
 import Equipo.Cola;
 import Equipo.NodoC;
+import Pokemones.Tipo;
 import TorneoMain.Torneo;
 import javax.swing.ImageIcon;
 
@@ -18,19 +19,27 @@ public class MainBattle extends javax.swing.JFrame {
     
     Torneo tor = new Torneo();
     
-    int count=0;
+    int count=1;
     int entrenadoresDerrotados = 0;
     
+    boolean ataca = true;
+    
     Cola player;
+    Cola playerReset;
     Cola trainer;
+    Cola trainer2;
+    Cola trainer3;
     
     NodoC pkmnplayer;
     NodoC pkmnrival;
     
-    public void battleSetup(Cola Player,  Cola Trainer){
+    public void battleSetup(Cola Player,  Cola Trainer, Cola Trainer2, Cola Trainer3){
         
         this.player = Player;
+        this.playerReset = Player;
         this.trainer = Trainer;
+        this.trainer2 = Trainer2;
+        this.trainer3 = Trainer3;
         
         pkmnplayer = player.enfrenta();
         pkmnrival = trainer.enfrenta();
@@ -71,6 +80,7 @@ public class MainBattle extends javax.swing.JFrame {
         JLVidaTrainerTitle = new javax.swing.JLabel();
         JLVidaTrainer = new javax.swing.JLabel();
         JLPokmnTrainer = new javax.swing.JLabel();
+        JLInfo = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         JBAtaque = new javax.swing.JButton();
         JBAtaqueEsp = new javax.swing.JButton();
@@ -111,16 +121,20 @@ public class MainBattle extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(JLVidaPlayerTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(JLVidaPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(JLPkmnPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(JLVidaTrainerTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(67, 67, 67)
-                        .addComponent(JLVidaTrainer, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addComponent(JLPokmnTrainer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(JLVidaPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(JLVidaTrainerTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(67, 67, 67)
+                                .addComponent(JLVidaTrainer, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
+                            .addComponent(JLPokmnTrainer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(JLPkmnPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JLInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,11 +150,13 @@ public class MainBattle extends javax.swing.JFrame {
                             .addComponent(JLVidaPlayerTitle)
                             .addComponent(JLVidaPlayer))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JLPkmnPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(JLPkmnPlayer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JLPokmnTrainer, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                        .addComponent(JLPokmnTrainer, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                        .addComponent(JLInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20))))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -275,9 +291,7 @@ public class MainBattle extends javax.swing.JFrame {
     }//GEN-LAST:event_JBAtaqueEspActionPerformed
 
     private void JBAtaqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAtaqueActionPerformed
-        
-        boolean ataca = true;
-        
+
         double ataque = pkmnplayer.getDato().getTipo().getAtaque();
         double vidaR= pkmnrival.getDato().getTipo().getHp();
         double defensaR= pkmnrival.getDato().getTipo().getDefensa();
@@ -293,11 +307,18 @@ public class MainBattle extends javax.swing.JFrame {
                 if (pkmnrival == null){
                     entrenadoresDerrotados++;
                     if(entrenadoresDerrotados==1){
-                        tor.JLTorneo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TorneoImg/Torneo2.png")));
+                        tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Torneo2.png"));
+                        trainer = trainer2;
+                        player = playerReset;
+                        pkmnplayer = player.enfrenta();
+                        JLInfo.setText("Combate 2");
                     }else if(entrenadoresDerrotados==2){
-                        tor.JLTorneo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TorneoImg/Torneo3.png")));
+                        tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Torneo3.png"));
+                        trainer = trainer3;
+                        JLInfo.setText("Combate 3");
                     }else if(entrenadoresDerrotados==3){
-                        tor.JLTorneo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TorneoImg/Winner.png")));
+                        tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Winner.png"));
+                        this.setVisible(false);
                     }
                 }
             }
@@ -313,36 +334,101 @@ public class MainBattle extends javax.swing.JFrame {
             }
         }
         JLVidaTrainer.setText(String.valueOf(pkmnrival.getDato().getTipo().getHp()));
-        JLPokmnTrainer.setText(pkmnrival.getDato().getNombre()+" "+pkmnrival.getDato().getTipo());
+        //JLPokmnTrainer.setText(pkmnrival.getDato().getNombre()+" "+pkmnrival.getDato().getTipo());
+        JLPokmnTrainer.setIcon(pkmnrival.getDato().getImg());
         
         // Turno 2
         if(ataca==true){
-            double ataqueR = pkmnrival.getDato().getTipo().getAtaque();
-            double vida= pkmnplayer.getDato().getTipo().getHp();
-            double defensa= pkmnplayer.getDato().getTipo().getDefensa();
+            
+            int rivalA= (int)(Math.random()*2)+1;
+            
+            if(rivalA==1){            
+                double ataqueR = pkmnrival.getDato().getTipo().getAtaque();
+                double vida= pkmnplayer.getDato().getTipo().getHp();
+                double defensa= pkmnplayer.getDato().getTipo().getDefensa();
 
-            defiende= (int)(Math.random()*3)+1;
+                defiende= (int)(Math.random()*3)+1;
 
-            if (defiende==1){
-                pkmnplayer.getDato().getTipo().setHp(vida-Math.abs(defensa-ataqueR));
-                if(pkmnplayer.getDato().getTipo().getHp() <= 0){
-                    pkmnplayer = player.enfrenta();
-                    if (pkmnplayer == null){
-                        tor.JLTorneo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TorneoImg/Game_Over.png")));
+                if (defiende==1){
+                    pkmnplayer.getDato().getTipo().setHp(vida-Math.abs(defensa-ataqueR));
+                    if(pkmnplayer.getDato().getTipo().getHp() <= 0){
+                        pkmnplayer = player.enfrenta();
+                        if (pkmnplayer == null){
+                            tor.JLTorneo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TorneoImg/Game_Over.png")));
+                            this.setVisible(false);
+                        }
                     }
                 }
-            }
-            else{
-                pkmnplayer.getDato().getTipo().setHp(vida - ataque);
-                if(pkmnplayer.getDato().getTipo().getHp() <= 0){
-                    pkmnplayer = player.enfrenta();
-                    if (pkmnplayer == null){
-                        tor.JLTorneo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TorneoImg/Game_Over.png")));
+                else{
+                    pkmnplayer.getDato().getTipo().setHp(vida - ataque);
+                    if(pkmnplayer.getDato().getTipo().getHp() <= 0){
+                        pkmnplayer = player.enfrenta();
+                        if (pkmnplayer == null){
+                            tor.JLTorneo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TorneoImg/Game_Over.png")));
+                            this.setVisible(false);
+                        }
                     }
                 }
+            }else{
+                double ataqueEspR = pkmnrival.getDato().getTipo().getAtaq_esp();
+                double vida= pkmnplayer.getDato().getTipo().getHp();
+                double defensaEsp= pkmnplayer.getDato().getTipo().getDef_esp();
+                
+                String tipoR= pkmnrival.getDato().getTipo().getTipoString();
+                String tipop = pkmnplayer.getDato().getTipo().getTipoString();
+                
+                    defiende= (int)(Math.random()*3)+1;
+                    
+                    if(tipoR.equals("Normal") && tipop.equals("Agua")){
+                        ataqueEspR += 5;
+                    }else if(tipop.equals("Normal") && tipoR.equals("Agua")){
+                        defensaEsp += 5;
+                    }else if(tipoR.equals("Fuego") && tipop.equals("Normal")){
+                        ataqueEspR += 5;
+                    }else if(tipop.equals("Normal") && tipoR.equals("Fuego")){
+                        defensaEsp += 10;
+                    }else if(tipoR.equals("Agua") && tipop.equals("Fuego")){
+                        ataqueEspR += 10;
+                    }else if(tipop.equals("Fuego") && tipoR.equals("Agua")){
+                        defensaEsp += 10;
+                    }
+                    
+                    
+                    if (defiende==1){
+                        pkmnplayer.getDato().getTipo().setHp(vida-Math.abs(defensaEsp-ataqueEspR));
+                        ataca = false;
+                        
+                        
+                        // Comprueba si el jugador pierde
+                        if(pkmnplayer.getDato().getTipo().getHp() <= 0){
+                            pkmnplayer = player.enfrenta();
+                            if (pkmnplayer == null){
+                                tor.JLTorneo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TorneoImg/Game_Over.png")));
+                                this.setVisible(false);
+                            }
+                        }
+                    }
+                    else{
+                        pkmnplayer.getDato().getTipo().setHp(vida - ataqueEspR);
+                        ataca = false;
+                        
+                        
+                        // Comprueba si el jugador pierde
+                        if(pkmnplayer.getDato().getTipo().getHp() <= 0){
+                            pkmnplayer = player.enfrenta();
+                            if (pkmnplayer == null){
+                                tor.JLTorneo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TorneoImg/Game_Over.png")));
+                                this.setVisible(false);
+                            }
+                        }
+                    }
+                
+                
             }
+
             JLVidaPlayer.setText(String.valueOf(pkmnplayer.getDato().getTipo().getHp()));
             JLPkmnPlayer.setText(pkmnplayer.getDato().getNombre()+" "+pkmnplayer.getDato().getTipo());
+            JLPkmnPlayer.setIcon(pkmnplayer.getDato().getImg());
         }else{
             ataca=true;
         }
@@ -388,6 +474,7 @@ public class MainBattle extends javax.swing.JFrame {
     private javax.swing.JButton JBPokemon3;
     private javax.swing.JButton JBPokemon4;
     private javax.swing.JButton JBPokmn;
+    private javax.swing.JLabel JLInfo;
     public javax.swing.JLabel JLPkmnPlayer;
     public javax.swing.JLabel JLPokmnTrainer;
     private javax.swing.JLabel JLVidaPlayer;
