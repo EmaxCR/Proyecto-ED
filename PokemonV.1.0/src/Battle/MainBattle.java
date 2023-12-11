@@ -465,12 +465,12 @@ public class MainBattle extends javax.swing.JFrame {
                     resetearStats(pkmnplayer4);
 
                     // Cambia al entrenador
-                    trainer = trainer2;
+                    trainer = trainer3;
 
-                    pkmnrival1 = trainer.enfrenta();
-                    pkmnrival2 = trainer.enfrenta();
-                    pkmnrival3 = trainer.enfrenta();
-                    pkmnrival4 = trainer.enfrenta();
+                    pkmnrival1 = pkmnrival13;
+                    pkmnrival2 = pkmnrival23;
+                    pkmnrival3 = pkmnrival33;
+                    pkmnrival4 = pkmnrival43;
 
                     trainer.encola(pkmnrival1);
                     trainer.encola(pkmnrival2);
@@ -492,7 +492,7 @@ public class MainBattle extends javax.swing.JFrame {
                     JLVidaPlayer.setText(String.valueOf(pkmnplayer.getDato().getTipo().getHp()));
                     JLPkmnPlayer.setIcon(pkmnplayer.getDato().getImg());
 
-                    JLInfo.setText("Combate 2");
+                    JLInfo.setText("Combate 3");
                     break;
                 case 3:
                     tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Winner.png"));
@@ -626,12 +626,12 @@ public class MainBattle extends javax.swing.JFrame {
                                         resetearStats(pkmnplayer4);
 
                                         // Cambia al entrenador
-                                        trainer = trainer2;
+                                        trainer = trainer3;
 
-                                        pkmnrival1 = trainer.enfrenta();
-                                        pkmnrival2 = trainer.enfrenta();
-                                        pkmnrival3 = trainer.enfrenta();
-                                        pkmnrival4 = trainer.enfrenta();
+                                        pkmnrival1 = pkmnrival13;
+                                        pkmnrival2 = pkmnrival23;
+                                        pkmnrival3 = pkmnrival33;
+                                        pkmnrival4 = pkmnrival43;
 
                                         trainer.encola(pkmnrival1);
                                         trainer.encola(pkmnrival2);
@@ -653,7 +653,7 @@ public class MainBattle extends javax.swing.JFrame {
                                         JLVidaPlayer.setText(String.valueOf(pkmnplayer.getDato().getTipo().getHp()));
                                         JLPkmnPlayer.setIcon(pkmnplayer.getDato().getImg());
 
-                                        JLInfo.setText("Combate 2");
+                                        JLInfo.setText("Combate 3");
                                         break;
                                     case 3:
                                         tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Winner.png"));
@@ -745,12 +745,12 @@ public class MainBattle extends javax.swing.JFrame {
                                         player.encola(pkmnplayer4);
 
                                         // Cambia al entrenador
-                                        trainer = trainer2;
+                                        trainer = trainer3;
 
-                                        pkmnrival1 = trainer.enfrenta();
-                                        pkmnrival2 = trainer.enfrenta();
-                                        pkmnrival3 = trainer.enfrenta();
-                                        pkmnrival4 = trainer.enfrenta();
+                                        pkmnrival1 = pkmnrival13;
+                                        pkmnrival2 = pkmnrival23;
+                                        pkmnrival3 = pkmnrival33;
+                                        pkmnrival4 = pkmnrival43;
 
                                         trainer.encola(pkmnrival1);
                                         trainer.encola(pkmnrival2);
@@ -767,7 +767,7 @@ public class MainBattle extends javax.swing.JFrame {
                                         JLVidaPlayer.setText(String.valueOf(pkmnplayer.getDato().getTipo().getHp()));
                                         JLPkmnPlayer.setIcon(pkmnplayer.getDato().getImg());
 
-                                        JLInfo.setText("Combate 2");
+                                        JLInfo.setText("Combate 3");
                                         break;
                                     case 3:
                                         tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Winner.png"));
@@ -1008,12 +1008,12 @@ public class MainBattle extends javax.swing.JFrame {
                     resetearStats(pkmnplayer4);
 
                     // Cambia al entrenador
-                    trainer = trainer2;
+                    trainer = trainer3;
 
-                    pkmnrival1 = trainer.enfrenta();
-                    pkmnrival2 = trainer.enfrenta();
-                    pkmnrival3 = trainer.enfrenta();
-                    pkmnrival4 = trainer.enfrenta();
+                    pkmnrival1 = pkmnrival13;
+                    pkmnrival2 = pkmnrival23;
+                    pkmnrival3 = pkmnrival33;
+                    pkmnrival4 = pkmnrival43;
 
                     trainer.encola(pkmnrival1);
                     trainer.encola(pkmnrival2);
@@ -1035,7 +1035,7 @@ public class MainBattle extends javax.swing.JFrame {
                     JLVidaPlayer.setText(String.valueOf(pkmnplayer.getDato().getTipo().getHp()));
                     JLPkmnPlayer.setIcon(pkmnplayer.getDato().getImg());
 
-                    JLInfo.setText("Combate 2");
+                    JLInfo.setText("Combate 3");
                     break;
                 case 3:
                     tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Winner.png"));
@@ -1143,17 +1143,12 @@ public class MainBattle extends javax.swing.JFrame {
                                         resetearStats(pkmnplayer4);
 
                                         // Cambia al entrenador
-                                        trainer = trainer2;
+                                        trainer = trainer3;
 
-                                        pkmnrival1 = trainer.enfrenta();
-                                        pkmnrival2 = trainer.enfrenta();
-                                        pkmnrival3 = trainer.enfrenta();
-                                        pkmnrival4 = trainer.enfrenta();
-
-                                        trainer.encola(pkmnrival1);
-                                        trainer.encola(pkmnrival2);
-                                        trainer.encola(pkmnrival3);
-                                        trainer.encola(pkmnrival4);
+                                        pkmnrival1 = pkmnrival13;
+                                        pkmnrival2 = pkmnrival23;
+                                        pkmnrival3 = pkmnrival33;
+                                        pkmnrival4 = pkmnrival43;
 
                                         resetearStats(pkmnrival1);
                                         resetearStats(pkmnrival2);
@@ -1170,7 +1165,7 @@ public class MainBattle extends javax.swing.JFrame {
                                         JLVidaPlayer.setText(String.valueOf(pkmnplayer.getDato().getTipo().getHp()));
                                         JLPkmnPlayer.setIcon(pkmnplayer.getDato().getImg());
 
-                                        JLInfo.setText("Combate 2");
+                                        JLInfo.setText("Combate 3");
                                         break;
                                     case 3:
                                         tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Winner.png"));
@@ -1273,12 +1268,12 @@ public class MainBattle extends javax.swing.JFrame {
                                         resetearStats(pkmnplayer4);
 
                                         // Cambia al entrenador
-                                        trainer = trainer2;
+                                        trainer = trainer3;
 
-                                        pkmnrival1 = trainer.enfrenta();
-                                        pkmnrival2 = trainer.enfrenta();
-                                        pkmnrival3 = trainer.enfrenta();
-                                        pkmnrival4 = trainer.enfrenta();
+                                        pkmnrival1 = pkmnrival13;
+                                        pkmnrival2 = pkmnrival23;
+                                        pkmnrival3 = pkmnrival33;
+                                        pkmnrival4 = pkmnrival43;
 
                                         trainer.encola(pkmnrival1);
                                         trainer.encola(pkmnrival2);
@@ -1300,7 +1295,7 @@ public class MainBattle extends javax.swing.JFrame {
                                         JLVidaPlayer.setText(String.valueOf(pkmnplayer.getDato().getTipo().getHp()));
                                         JLPkmnPlayer.setIcon(pkmnplayer.getDato().getImg());
 
-                                        JLInfo.setText("Combate 2");
+                                        JLInfo.setText("Combate 3");
                                         break;
                                     case 3:
                                         tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Winner.png"));
