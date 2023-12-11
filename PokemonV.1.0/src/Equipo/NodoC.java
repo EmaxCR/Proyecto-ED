@@ -38,6 +38,7 @@ public class NodoC {
     public String toString() {
         return "NodoC: "+ pkmn;
     }
+
     
     
     

@@ -12,12 +12,11 @@ import TorneoMain.Torneo;
  *
  * @author cesar
  */
-public class MainBattle extends javax.swing.JFrame {
+public class MainBattle3 extends javax.swing.JFrame {
 
     Torneo tor = new Torneo();
 
     int muertos = 0;
-    int muertosR = 0;
     int count = 1;
     int entrenadoresDerrotados = 0;
 
@@ -37,21 +36,6 @@ public class MainBattle extends javax.swing.JFrame {
 
     NodoC pkmnrival;
 
-    NodoC pkmnrival1;
-    NodoC pkmnrival2;
-    NodoC pkmnrival3;
-    NodoC pkmnrival4;
-
-    NodoC pkmnrival12;
-    NodoC pkmnrival22;
-    NodoC pkmnrival32;
-    NodoC pkmnrival42;
-
-    NodoC pkmnrival13;
-    NodoC pkmnrival23;
-    NodoC pkmnrival33;
-    NodoC pkmnrival43;
-
     public void battleSetup(Cola Player, Cola Trainer, Cola Trainer2, Cola Trainer3) {
 
         this.player = Player;
@@ -69,38 +53,9 @@ public class MainBattle extends javax.swing.JFrame {
         player.encola(pkmnplayer3);
         player.encola(pkmnplayer4);
 
-        pkmnrival1 = trainer.enfrenta();
-        pkmnrival2 = trainer.enfrenta();
-        pkmnrival3 = trainer.enfrenta();
-        pkmnrival4 = trainer.enfrenta();
-
-        trainer.encola(pkmnrival1);
-        trainer.encola(pkmnrival2);
-        trainer.encola(pkmnrival3);
-        trainer.encola(pkmnrival4);
-
-        pkmnrival12 = trainer2.enfrenta();
-        pkmnrival22 = trainer2.enfrenta();
-        pkmnrival32 = trainer2.enfrenta();
-        pkmnrival42 = trainer2.enfrenta();
-
-        trainer2.encola(pkmnrival12);
-        trainer2.encola(pkmnrival22);
-        trainer2.encola(pkmnrival32);
-        trainer2.encola(pkmnrival42);
-
-        pkmnrival13 = trainer3.enfrenta();
-        pkmnrival23 = trainer3.enfrenta();
-        pkmnrival33 = trainer3.enfrenta();
-        pkmnrival43 = trainer3.enfrenta();
-
-        trainer3.encola(pkmnrival13);
-        trainer3.encola(pkmnrival23);
-        trainer3.encola(pkmnrival33);
-        trainer3.encola(pkmnrival43);
-
-        pkmnrival = pkmnrival1;
         pkmnplayer = pkmnplayer1;
+
+        pkmnrival = trainer.enfrenta();
 
         // Solucion temporal a imagenes
         JLPkmnPlayer.setText(pkmnplayer.getDato().getNombre() + " " + pkmnplayer.getDato().getTipo());
@@ -121,28 +76,10 @@ public class MainBattle extends javax.swing.JFrame {
         JBPokemon4.setText(pkmnplayer4.getDato().getNombre());
     }
 
-    public void resetearStats(NodoC pkmn) {
-
-        switch (pkmn.getDato().getTipo().getTipoString()) {
-            case "Normal":
-                pkmn.getDato().getTipo().setHp(150);
-                break;
-            case "Agua":
-                pkmn.getDato().getTipo().setHp(190);
-                break;
-            case "Fuego":
-                pkmn.getDato().getTipo().setHp(115);
-                break;
-            default:
-                pkmn.getDato().getTipo().setHp(150);
-                break;
-        }
-    }
-
     /**
      * Creates new form MainBattle
      */
-    public MainBattle() {
+    public MainBattle3() {
         initComponents();
     }
 
@@ -390,17 +327,12 @@ public class MainBattle extends javax.swing.JFrame {
     private void JBAtaqueEspActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAtaqueEspActionPerformed
         // Turno 1
 
-        if (pkmnrival == pkmnrival4 && pkmnrival.getDato().getTipo().getHp() <= 0) {
+        if (pkmnrival == null) {
             entrenadoresDerrotados++;
             switch (entrenadoresDerrotados) {
                 case 1:
                     tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Torneo2.png"));
 
-                    // Resetea a los muertos
-                    muertosR = 0;
-                    muertos = 0;
-
-                    // Resetea al jugador
                     pkmnplayer1 = player.enfrenta();
                     pkmnplayer2 = player.enfrenta();
                     pkmnplayer3 = player.enfrenta();
@@ -411,30 +343,12 @@ public class MainBattle extends javax.swing.JFrame {
                     player.encola(pkmnplayer3);
                     player.encola(pkmnplayer4);
 
-                    resetearStats(pkmnplayer1);
-                    resetearStats(pkmnplayer2);
-                    resetearStats(pkmnplayer3);
-                    resetearStats(pkmnplayer4);
+                    trainer.encola(trainer2.enfrenta());
+                    trainer.encola(trainer2.enfrenta());
+                    trainer.encola(trainer2.enfrenta());
+                    trainer.encola(trainer2.enfrenta());
 
-                    // Cambia al entrenador
-                    trainer = trainer2;
-
-                    pkmnrival1 = pkmnrival12;
-                    pkmnrival2 = pkmnrival22;
-                    pkmnrival3 = pkmnrival32;
-                    pkmnrival4 = pkmnrival42;
-
-                    trainer.encola(pkmnrival1);
-                    trainer.encola(pkmnrival2);
-                    trainer.encola(pkmnrival3);
-                    trainer.encola(pkmnrival4);
-
-                    resetearStats(pkmnrival1);
-                    resetearStats(pkmnrival2);
-                    resetearStats(pkmnrival3);
-                    resetearStats(pkmnrival4);
-
-                    pkmnrival = pkmnrival1;
+                    pkmnrival = trainer.enfrenta();
                     pkmnplayer = pkmnplayer1;
 
                     // Se actualizan los graficos
@@ -459,30 +373,12 @@ public class MainBattle extends javax.swing.JFrame {
                     player.encola(pkmnplayer3);
                     player.encola(pkmnplayer4);
 
-                    resetearStats(pkmnplayer1);
-                    resetearStats(pkmnplayer2);
-                    resetearStats(pkmnplayer3);
-                    resetearStats(pkmnplayer4);
+                    trainer.encola(trainer3.enfrenta());
+                    trainer.encola(trainer3.enfrenta());
+                    trainer.encola(trainer3.enfrenta());
+                    trainer.encola(trainer3.enfrenta());
 
-                    // Cambia al entrenador
-                    trainer = trainer2;
-
-                    pkmnrival1 = trainer.enfrenta();
-                    pkmnrival2 = trainer.enfrenta();
-                    pkmnrival3 = trainer.enfrenta();
-                    pkmnrival4 = trainer.enfrenta();
-
-                    trainer.encola(pkmnrival1);
-                    trainer.encola(pkmnrival2);
-                    trainer.encola(pkmnrival3);
-                    trainer.encola(pkmnrival4);
-
-                    resetearStats(pkmnrival1);
-                    resetearStats(pkmnrival2);
-                    resetearStats(pkmnrival3);
-                    resetearStats(pkmnrival4);
-
-                    pkmnrival = pkmnrival1;
+                    pkmnrival = trainer.enfrenta();
                     pkmnplayer = pkmnplayer1;
 
                     // Se actualizan los graficos
@@ -491,8 +387,7 @@ public class MainBattle extends javax.swing.JFrame {
 
                     JLVidaPlayer.setText(String.valueOf(pkmnplayer.getDato().getTipo().getHp()));
                     JLPkmnPlayer.setIcon(pkmnplayer.getDato().getImg());
-
-                    JLInfo.setText("Combate 2");
+                    JLInfo.setText("Combate 3");
                     break;
                 case 3:
                     tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Winner.png"));
@@ -500,6 +395,77 @@ public class MainBattle extends javax.swing.JFrame {
                     break;
             }
         } else {
+            if (pkmnrival.getDato().getTipo().getHp() <= 0) {
+                pkmnrival = trainer.enfrenta();
+                if (pkmnrival == null) {
+                    entrenadoresDerrotados++;
+                    switch (entrenadoresDerrotados) {
+                        case 1:
+                            tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Torneo2.png"));
+
+                            pkmnplayer1 = player.enfrenta();
+                            pkmnplayer2 = player.enfrenta();
+                            pkmnplayer3 = player.enfrenta();
+                            pkmnplayer4 = player.enfrenta();
+
+                            player.encola(pkmnplayer1);
+                            player.encola(pkmnplayer2);
+                            player.encola(pkmnplayer3);
+                            player.encola(pkmnplayer4);
+
+                            trainer.encola(trainer2.enfrenta());
+                            trainer.encola(trainer2.enfrenta());
+                            trainer.encola(trainer2.enfrenta());
+                            trainer.encola(trainer2.enfrenta());
+
+                            pkmnrival = trainer.enfrenta();
+                            pkmnplayer = pkmnplayer1;
+
+                            // Se actualizan los graficos
+                            JLVidaTrainer.setText(String.valueOf(pkmnrival.getDato().getTipo().getHp()));
+                            JLPokmnTrainer.setIcon(pkmnrival.getDato().getImg());
+
+                            JLVidaPlayer.setText(String.valueOf(pkmnplayer.getDato().getTipo().getHp()));
+                            JLPkmnPlayer.setIcon(pkmnplayer.getDato().getImg());
+
+                            JLInfo.setText("Combate 2");
+                            break;
+                        case 2:
+                            tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Torneo3.png"));
+
+                            pkmnplayer1 = player.enfrenta();
+                            pkmnplayer2 = player.enfrenta();
+                            pkmnplayer3 = player.enfrenta();
+                            pkmnplayer4 = player.enfrenta();
+
+                            player.encola(pkmnplayer1);
+                            player.encola(pkmnplayer2);
+                            player.encola(pkmnplayer3);
+                            player.encola(pkmnplayer4);
+
+                            trainer.encola(trainer3.enfrenta());
+                            trainer.encola(trainer3.enfrenta());
+                            trainer.encola(trainer3.enfrenta());
+                            trainer.encola(trainer3.enfrenta());
+
+                            pkmnrival = trainer.enfrenta();
+                            pkmnplayer = pkmnplayer1;
+
+                            // Se actualizan los graficos
+                            JLVidaTrainer.setText(String.valueOf(pkmnrival.getDato().getTipo().getHp()));
+                            JLPokmnTrainer.setIcon(pkmnrival.getDato().getImg());
+
+                            JLVidaPlayer.setText(String.valueOf(pkmnplayer.getDato().getTipo().getHp()));
+                            JLPkmnPlayer.setIcon(pkmnplayer.getDato().getImg());
+                            JLInfo.setText("Combate 3");
+                            break;
+                        case 3:
+                            tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Winner.png"));
+                            this.setVisible(false);
+                            break;
+                    }
+                }
+            }
 
             if (atacap == true) {
 
@@ -540,28 +506,15 @@ public class MainBattle extends javax.swing.JFrame {
 
                     // Comprueba si el Otro entrenador pierde
                     if (pkmnrival.getDato().getTipo().getHp() <= 0) {
-                        muertosR++;
-                        switch (muertosR) {
-                            case 1:
-                                pkmnrival = pkmnrival2;
-                                break;
-                            case 2:
-                                pkmnrival = pkmnrival3;
-                                break;
-                            case 3:
-                                pkmnrival = pkmnrival4;
-                                break;
-                            default:
+                        pkmnrival = trainer.enfrenta();
+                        if (pkmnrival.getDato().getTipo().getHp() <= 0) {
+                            pkmnrival = trainer.enfrenta();
+                            if (pkmnrival == null) {
                                 entrenadoresDerrotados++;
                                 switch (entrenadoresDerrotados) {
                                     case 1:
                                         tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Torneo2.png"));
 
-                                        // Resetea a los muertos
-                                        muertosR = 0;
-                                        muertos = 0;
-
-                                        // Resetea al jugador
                                         pkmnplayer1 = player.enfrenta();
                                         pkmnplayer2 = player.enfrenta();
                                         pkmnplayer3 = player.enfrenta();
@@ -572,30 +525,12 @@ public class MainBattle extends javax.swing.JFrame {
                                         player.encola(pkmnplayer3);
                                         player.encola(pkmnplayer4);
 
-                                        resetearStats(pkmnplayer1);
-                                        resetearStats(pkmnplayer2);
-                                        resetearStats(pkmnplayer3);
-                                        resetearStats(pkmnplayer4);
+                                        trainer.encola(trainer2.enfrenta());
+                                        trainer.encola(trainer2.enfrenta());
+                                        trainer.encola(trainer2.enfrenta());
+                                        trainer.encola(trainer2.enfrenta());
 
-                                        // Cambia al entrenador
-                                        trainer = trainer2;
-
-                                        pkmnrival1 = pkmnrival12;
-                                        pkmnrival2 = pkmnrival22;
-                                        pkmnrival3 = pkmnrival32;
-                                        pkmnrival4 = pkmnrival42;
-
-                                        trainer.encola(pkmnrival1);
-                                        trainer.encola(pkmnrival2);
-                                        trainer.encola(pkmnrival3);
-                                        trainer.encola(pkmnrival4);
-
-                                        resetearStats(pkmnrival1);
-                                        resetearStats(pkmnrival2);
-                                        resetearStats(pkmnrival3);
-                                        resetearStats(pkmnrival4);
-
-                                        pkmnrival = pkmnrival1;
+                                        pkmnrival = trainer.enfrenta();
                                         pkmnplayer = pkmnplayer1;
 
                                         // Se actualizan los graficos
@@ -620,30 +555,12 @@ public class MainBattle extends javax.swing.JFrame {
                                         player.encola(pkmnplayer3);
                                         player.encola(pkmnplayer4);
 
-                                        resetearStats(pkmnplayer1);
-                                        resetearStats(pkmnplayer2);
-                                        resetearStats(pkmnplayer3);
-                                        resetearStats(pkmnplayer4);
+                                        trainer.encola(trainer3.enfrenta());
+                                        trainer.encola(trainer3.enfrenta());
+                                        trainer.encola(trainer3.enfrenta());
+                                        trainer.encola(trainer3.enfrenta());
 
-                                        // Cambia al entrenador
-                                        trainer = trainer2;
-
-                                        pkmnrival1 = trainer.enfrenta();
-                                        pkmnrival2 = trainer.enfrenta();
-                                        pkmnrival3 = trainer.enfrenta();
-                                        pkmnrival4 = trainer.enfrenta();
-
-                                        trainer.encola(pkmnrival1);
-                                        trainer.encola(pkmnrival2);
-                                        trainer.encola(pkmnrival3);
-                                        trainer.encola(pkmnrival4);
-
-                                        resetearStats(pkmnrival1);
-                                        resetearStats(pkmnrival2);
-                                        resetearStats(pkmnrival3);
-                                        resetearStats(pkmnrival4);
-
-                                        pkmnrival = pkmnrival1;
+                                        pkmnrival = trainer.enfrenta();
                                         pkmnplayer = pkmnplayer1;
 
                                         // Se actualizan los graficos
@@ -652,18 +569,15 @@ public class MainBattle extends javax.swing.JFrame {
 
                                         JLVidaPlayer.setText(String.valueOf(pkmnplayer.getDato().getTipo().getHp()));
                                         JLPkmnPlayer.setIcon(pkmnplayer.getDato().getImg());
-
-                                        JLInfo.setText("Combate 2");
+                                        JLInfo.setText("Combate 3");
                                         break;
                                     case 3:
                                         tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Winner.png"));
                                         this.setVisible(false);
                                         break;
                                 }
-                                break;
+                            }
                         }
-                    } else {
-                        System.out.println(pkmnrival);
                     }
 
                 } else {
@@ -674,28 +588,15 @@ public class MainBattle extends javax.swing.JFrame {
 
                     // Comprueba si el Otro entrenador pierde
                     if (pkmnrival.getDato().getTipo().getHp() <= 0) {
-                        muertosR++;
-                        switch (muertosR) {
-                            case 1:
-                                pkmnrival = pkmnrival2;
-                                break;
-                            case 2:
-                                pkmnrival = pkmnrival3;
-                                break;
-                            case 3:
-                                pkmnrival = pkmnrival4;
-                                break;
-                            default:
+                        pkmnrival = trainer.enfrenta();
+                        if (pkmnrival.getDato().getTipo().getHp() <= 0) {
+                            pkmnrival = trainer.enfrenta();
+                            if (pkmnrival == null) {
                                 entrenadoresDerrotados++;
                                 switch (entrenadoresDerrotados) {
                                     case 1:
                                         tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Torneo2.png"));
 
-                                        // Resetea a los muertos
-                                        muertosR = 0;
-                                        muertos = 0;
-
-                                        // Resetea al jugador
                                         pkmnplayer1 = player.enfrenta();
                                         pkmnplayer2 = player.enfrenta();
                                         pkmnplayer3 = player.enfrenta();
@@ -706,20 +607,12 @@ public class MainBattle extends javax.swing.JFrame {
                                         player.encola(pkmnplayer3);
                                         player.encola(pkmnplayer4);
 
-                                        // Cambia al entrenador
-                                        trainer = trainer2;
+                                        trainer.encola(trainer2.enfrenta());
+                                        trainer.encola(trainer2.enfrenta());
+                                        trainer.encola(trainer2.enfrenta());
+                                        trainer.encola(trainer2.enfrenta());
 
-                                        pkmnrival1 = pkmnrival12;
-                                        pkmnrival2 = pkmnrival22;
-                                        pkmnrival3 = pkmnrival32;
-                                        pkmnrival4 = pkmnrival42;
-
-                                        trainer.encola(pkmnrival1);
-                                        trainer.encola(pkmnrival2);
-                                        trainer.encola(pkmnrival3);
-                                        trainer.encola(pkmnrival4);
-
-                                        pkmnrival = pkmnrival1;
+                                        pkmnrival = trainer.enfrenta();
                                         pkmnplayer = pkmnplayer1;
 
                                         // Se actualizan los graficos
@@ -744,20 +637,12 @@ public class MainBattle extends javax.swing.JFrame {
                                         player.encola(pkmnplayer3);
                                         player.encola(pkmnplayer4);
 
-                                        // Cambia al entrenador
-                                        trainer = trainer2;
+                                        trainer.encola(trainer3.enfrenta());
+                                        trainer.encola(trainer3.enfrenta());
+                                        trainer.encola(trainer3.enfrenta());
+                                        trainer.encola(trainer3.enfrenta());
 
-                                        pkmnrival1 = trainer.enfrenta();
-                                        pkmnrival2 = trainer.enfrenta();
-                                        pkmnrival3 = trainer.enfrenta();
-                                        pkmnrival4 = trainer.enfrenta();
-
-                                        trainer.encola(pkmnrival1);
-                                        trainer.encola(pkmnrival2);
-                                        trainer.encola(pkmnrival3);
-                                        trainer.encola(pkmnrival4);
-
-                                        pkmnrival = pkmnrival1;
+                                        pkmnrival = trainer.enfrenta();
                                         pkmnplayer = pkmnplayer1;
 
                                         // Se actualizan los graficos
@@ -766,24 +651,22 @@ public class MainBattle extends javax.swing.JFrame {
 
                                         JLVidaPlayer.setText(String.valueOf(pkmnplayer.getDato().getTipo().getHp()));
                                         JLPkmnPlayer.setIcon(pkmnplayer.getDato().getImg());
-
-                                        JLInfo.setText("Combate 2");
+                                        JLInfo.setText("Combate 3");
                                         break;
                                     case 3:
                                         tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Winner.png"));
                                         this.setVisible(false);
                                         break;
                                 }
-                                break;
+                            }
                         }
-                    } else {
-                        System.out.println(pkmnrival);
                     }
                 }
             } else {
                 atacap = true;
             }
             JLVidaTrainer.setText(String.valueOf(pkmnrival.getDato().getTipo().getHp()));
+            //JLPokmnTrainer.setText(pkmnrival.getDato().getNombre()+" "+pkmnrival.getDato().getTipo());
             JLPokmnTrainer.setIcon(pkmnrival.getDato().getImg());
 
             // Turno 2
@@ -800,48 +683,22 @@ public class MainBattle extends javax.swing.JFrame {
 
                     if (defiende == 1) {
                         pkmnplayer.getDato().getTipo().setHp(vida - Math.abs(defensa - ataqueR));
-
                         if (pkmnplayer.getDato().getTipo().getHp() <= 0) {
-                            muertos++;
-                            switch (muertos) {
-                                case 1:
-                                    pkmnplayer = pkmnplayer2;
-                                    break;
-                                case 2:
-                                    pkmnplayer = pkmnplayer3;
-                                    break;
-                                case 3:
-                                    pkmnplayer = pkmnplayer4;
-                                    break;
-                                default:
-                                    tor.JLTorneo.setIcon(new javax.swing.ImageIcon(getClass().getResource("src/TorneoImg/Game_Over.png")));
-                                    this.setVisible(false);
-                                    break;
+                            pkmnplayer = player.enfrenta();
+                            if (pkmnplayer == null) {
+                                tor.JLTorneo.setIcon(new javax.swing.ImageIcon(getClass().getResource("src/TorneoImg/Game_Over.png")));
+                                this.setVisible(false);
                             }
                         }
-
                     } else {
                         pkmnplayer.getDato().getTipo().setHp(vida - ataqueR);
-
                         if (pkmnplayer.getDato().getTipo().getHp() <= 0) {
-                            muertos++;
-                            switch (muertos) {
-                                case 1:
-                                    pkmnplayer = pkmnplayer2;
-                                    break;
-                                case 2:
-                                    pkmnplayer = pkmnplayer3;
-                                    break;
-                                case 3:
-                                    pkmnplayer = pkmnplayer4;
-                                    break;
-                                default:
-                                    tor.JLTorneo.setIcon(new javax.swing.ImageIcon(getClass().getResource("src/TorneoImg/Game_Over.png")));
-                                    this.setVisible(false);
-                                    break;
+                            pkmnplayer = player.enfrenta();
+                            if (pkmnplayer == null) {
+                                tor.JLTorneo.setIcon(new javax.swing.ImageIcon(getClass().getResource("src/TorneoImg/Game_Over.png")));
+                                this.setVisible(false);
                             }
                         }
-
                     }
                 } else {
                     double ataqueEspR = pkmnrival.getDato().getTipo().getAtaq_esp();
@@ -922,6 +779,7 @@ public class MainBattle extends javax.swing.JFrame {
                 }
 
                 JLVidaPlayer.setText(String.valueOf(pkmnplayer.getDato().getTipo().getHp()));
+                JLPkmnPlayer.setText(pkmnplayer.getDato().getNombre() + " " + pkmnplayer.getDato().getTipo());
                 JLPkmnPlayer.setIcon(pkmnplayer.getDato().getImg());
 
             } else {
@@ -933,17 +791,12 @@ public class MainBattle extends javax.swing.JFrame {
 
     private void JBAtaqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAtaqueActionPerformed
 
-        if (pkmnrival == pkmnrival4 && pkmnrival.getDato().getTipo().getHp() <= 0) {
+        if (pkmnrival == null) {
             entrenadoresDerrotados++;
             switch (entrenadoresDerrotados) {
                 case 1:
                     tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Torneo2.png"));
 
-                    // Resetea a los muertos
-                    muertosR = 0;
-                    muertos = 0;
-
-                    // Resetea al jugador
                     pkmnplayer1 = player.enfrenta();
                     pkmnplayer2 = player.enfrenta();
                     pkmnplayer3 = player.enfrenta();
@@ -954,30 +807,12 @@ public class MainBattle extends javax.swing.JFrame {
                     player.encola(pkmnplayer3);
                     player.encola(pkmnplayer4);
 
-                    resetearStats(pkmnplayer1);
-                    resetearStats(pkmnplayer2);
-                    resetearStats(pkmnplayer3);
-                    resetearStats(pkmnplayer4);
+                    trainer.encola(trainer2.enfrenta());
+                    trainer.encola(trainer2.enfrenta());
+                    trainer.encola(trainer2.enfrenta());
+                    trainer.encola(trainer2.enfrenta());
 
-                    // Cambia al entrenador
-                    trainer = trainer2;
-
-                    pkmnrival1 = pkmnrival12;
-                    pkmnrival2 = pkmnrival22;
-                    pkmnrival3 = pkmnrival32;
-                    pkmnrival4 = pkmnrival42;
-
-                    trainer.encola(pkmnrival1);
-                    trainer.encola(pkmnrival2);
-                    trainer.encola(pkmnrival3);
-                    trainer.encola(pkmnrival4);
-
-                    resetearStats(pkmnrival1);
-                    resetearStats(pkmnrival2);
-                    resetearStats(pkmnrival3);
-                    resetearStats(pkmnrival4);
-
-                    pkmnrival = pkmnrival1;
+                    pkmnrival = trainer.enfrenta();
                     pkmnplayer = pkmnplayer1;
 
                     // Se actualizan los graficos
@@ -1002,30 +837,12 @@ public class MainBattle extends javax.swing.JFrame {
                     player.encola(pkmnplayer3);
                     player.encola(pkmnplayer4);
 
-                    resetearStats(pkmnplayer1);
-                    resetearStats(pkmnplayer2);
-                    resetearStats(pkmnplayer3);
-                    resetearStats(pkmnplayer4);
+                    trainer.encola(trainer3.enfrenta());
+                    trainer.encola(trainer3.enfrenta());
+                    trainer.encola(trainer3.enfrenta());
+                    trainer.encola(trainer3.enfrenta());
 
-                    // Cambia al entrenador
-                    trainer = trainer2;
-
-                    pkmnrival1 = trainer.enfrenta();
-                    pkmnrival2 = trainer.enfrenta();
-                    pkmnrival3 = trainer.enfrenta();
-                    pkmnrival4 = trainer.enfrenta();
-
-                    trainer.encola(pkmnrival1);
-                    trainer.encola(pkmnrival2);
-                    trainer.encola(pkmnrival3);
-                    trainer.encola(pkmnrival4);
-
-                    resetearStats(pkmnrival1);
-                    resetearStats(pkmnrival2);
-                    resetearStats(pkmnrival3);
-                    resetearStats(pkmnrival4);
-
-                    pkmnrival = pkmnrival1;
+                    pkmnrival = trainer.enfrenta();
                     pkmnplayer = pkmnplayer1;
 
                     // Se actualizan los graficos
@@ -1034,8 +851,7 @@ public class MainBattle extends javax.swing.JFrame {
 
                     JLVidaPlayer.setText(String.valueOf(pkmnplayer.getDato().getTipo().getHp()));
                     JLPkmnPlayer.setIcon(pkmnplayer.getDato().getImg());
-
-                    JLInfo.setText("Combate 2");
+                    JLInfo.setText("Combate 3");
                     break;
                 case 3:
                     tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Winner.png"));
@@ -1043,6 +859,77 @@ public class MainBattle extends javax.swing.JFrame {
                     break;
             }
         } else {
+            if (pkmnrival.getDato().getTipo().getHp() <= 0) {
+                pkmnrival = trainer.enfrenta();
+                if (pkmnrival == null) {
+                    entrenadoresDerrotados++;
+                    switch (entrenadoresDerrotados) {
+                        case 1:
+                            tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Torneo2.png"));
+
+                            pkmnplayer1 = player.enfrenta();
+                            pkmnplayer2 = player.enfrenta();
+                            pkmnplayer3 = player.enfrenta();
+                            pkmnplayer4 = player.enfrenta();
+
+                            player.encola(pkmnplayer1);
+                            player.encola(pkmnplayer2);
+                            player.encola(pkmnplayer3);
+                            player.encola(pkmnplayer4);
+
+                            trainer.encola(trainer2.enfrenta());
+                            trainer.encola(trainer2.enfrenta());
+                            trainer.encola(trainer2.enfrenta());
+                            trainer.encola(trainer2.enfrenta());
+
+                            pkmnrival = trainer.enfrenta();
+                            pkmnplayer = pkmnplayer1;
+
+                            // Se actualizan los graficos
+                            JLVidaTrainer.setText(String.valueOf(pkmnrival.getDato().getTipo().getHp()));
+                            JLPokmnTrainer.setIcon(pkmnrival.getDato().getImg());
+
+                            JLVidaPlayer.setText(String.valueOf(pkmnplayer.getDato().getTipo().getHp()));
+                            JLPkmnPlayer.setIcon(pkmnplayer.getDato().getImg());
+
+                            JLInfo.setText("Combate 2");
+                            break;
+                        case 2:
+                            tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Torneo3.png"));
+
+                            pkmnplayer1 = player.enfrenta();
+                            pkmnplayer2 = player.enfrenta();
+                            pkmnplayer3 = player.enfrenta();
+                            pkmnplayer4 = player.enfrenta();
+
+                            player.encola(pkmnplayer1);
+                            player.encola(pkmnplayer2);
+                            player.encola(pkmnplayer3);
+                            player.encola(pkmnplayer4);
+
+                            trainer.encola(trainer3.enfrenta());
+                            trainer.encola(trainer3.enfrenta());
+                            trainer.encola(trainer3.enfrenta());
+                            trainer.encola(trainer3.enfrenta());
+
+                            pkmnrival = trainer.enfrenta();
+                            pkmnplayer = pkmnplayer1;
+
+                            // Se actualizan los graficos
+                            JLVidaTrainer.setText(String.valueOf(pkmnrival.getDato().getTipo().getHp()));
+                            JLPokmnTrainer.setIcon(pkmnrival.getDato().getImg());
+
+                            JLVidaPlayer.setText(String.valueOf(pkmnplayer.getDato().getTipo().getHp()));
+                            JLPkmnPlayer.setIcon(pkmnplayer.getDato().getImg());
+                            JLInfo.setText("Combate 3");
+                            break;
+                        case 3:
+                            tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Winner.png"));
+                            this.setVisible(false);
+                            break;
+                    }
+                }
+            }
 
             double ataque = pkmnplayer.getDato().getTipo().getAtaque();
             double vidaR = pkmnrival.getDato().getTipo().getHp();
@@ -1057,28 +944,15 @@ public class MainBattle extends javax.swing.JFrame {
                     pkmnrival.getDato().getTipo().setHp(vidaR - Math.abs(defensaR - ataque));
 
                     if (pkmnrival.getDato().getTipo().getHp() <= 0) {
-                        muertosR++;
-                        switch (muertosR) {
-                            case 1:
-                                pkmnrival = pkmnrival2;
-                                break;
-                            case 2:
-                                pkmnrival = pkmnrival3;
-                                break;
-                            case 3:
-                                pkmnrival = pkmnrival4;
-                                break;
-                            default:
+                        pkmnrival = trainer.enfrenta();
+                        if (pkmnrival.getDato().getTipo().getHp() <= 0) {
+                            pkmnrival = trainer.enfrenta();
+                            if (pkmnrival == null) {
                                 entrenadoresDerrotados++;
                                 switch (entrenadoresDerrotados) {
                                     case 1:
                                         tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Torneo2.png"));
 
-                                        // Resetea a los muertos
-                                        muertosR = 0;
-                                        muertos = 0;
-
-                                        // Resetea al jugador
                                         pkmnplayer1 = player.enfrenta();
                                         pkmnplayer2 = player.enfrenta();
                                         pkmnplayer3 = player.enfrenta();
@@ -1089,30 +963,12 @@ public class MainBattle extends javax.swing.JFrame {
                                         player.encola(pkmnplayer3);
                                         player.encola(pkmnplayer4);
 
-                                        resetearStats(pkmnplayer1);
-                                        resetearStats(pkmnplayer2);
-                                        resetearStats(pkmnplayer3);
-                                        resetearStats(pkmnplayer4);
+                                        trainer.encola(trainer2.enfrenta());
+                                        trainer.encola(trainer2.enfrenta());
+                                        trainer.encola(trainer2.enfrenta());
+                                        trainer.encola(trainer2.enfrenta());
 
-                                        // Cambia al entrenador
-                                        trainer = trainer2;
-
-                                        pkmnrival1 = pkmnrival12;
-                                        pkmnrival2 = pkmnrival22;
-                                        pkmnrival3 = pkmnrival32;
-                                        pkmnrival4 = pkmnrival42;
-
-                                        trainer.encola(pkmnrival1);
-                                        trainer.encola(pkmnrival2);
-                                        trainer.encola(pkmnrival3);
-                                        trainer.encola(pkmnrival4);
-
-                                        resetearStats(pkmnrival1);
-                                        resetearStats(pkmnrival2);
-                                        resetearStats(pkmnrival3);
-                                        resetearStats(pkmnrival4);
-
-                                        pkmnrival = pkmnrival1;
+                                        pkmnrival = trainer.enfrenta();
                                         pkmnplayer = pkmnplayer1;
 
                                         // Se actualizan los graficos
@@ -1137,30 +993,12 @@ public class MainBattle extends javax.swing.JFrame {
                                         player.encola(pkmnplayer3);
                                         player.encola(pkmnplayer4);
 
-                                        resetearStats(pkmnplayer1);
-                                        resetearStats(pkmnplayer2);
-                                        resetearStats(pkmnplayer3);
-                                        resetearStats(pkmnplayer4);
+                                        trainer.encola(trainer3.enfrenta());
+                                        trainer.encola(trainer3.enfrenta());
+                                        trainer.encola(trainer3.enfrenta());
+                                        trainer.encola(trainer3.enfrenta());
 
-                                        // Cambia al entrenador
-                                        trainer = trainer2;
-
-                                        pkmnrival1 = trainer.enfrenta();
-                                        pkmnrival2 = trainer.enfrenta();
-                                        pkmnrival3 = trainer.enfrenta();
-                                        pkmnrival4 = trainer.enfrenta();
-
-                                        trainer.encola(pkmnrival1);
-                                        trainer.encola(pkmnrival2);
-                                        trainer.encola(pkmnrival3);
-                                        trainer.encola(pkmnrival4);
-
-                                        resetearStats(pkmnrival1);
-                                        resetearStats(pkmnrival2);
-                                        resetearStats(pkmnrival3);
-                                        resetearStats(pkmnrival4);
-
-                                        pkmnrival = pkmnrival1;
+                                        pkmnrival = trainer.enfrenta();
                                         pkmnplayer = pkmnplayer1;
 
                                         // Se actualizan los graficos
@@ -1169,46 +1007,29 @@ public class MainBattle extends javax.swing.JFrame {
 
                                         JLVidaPlayer.setText(String.valueOf(pkmnplayer.getDato().getTipo().getHp()));
                                         JLPkmnPlayer.setIcon(pkmnplayer.getDato().getImg());
-
-                                        JLInfo.setText("Combate 2");
+                                        JLInfo.setText("Combate 3");
                                         break;
                                     case 3:
                                         tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Winner.png"));
                                         this.setVisible(false);
                                         break;
                                 }
-                                break;
+                            }
                         }
-                    } else {
-                        System.out.println(pkmnrival);
                     }
-
                 } else {
                     pkmnrival.getDato().getTipo().setHp(vidaR - ataque);
 
                     if (pkmnrival.getDato().getTipo().getHp() <= 0) {
-                        muertosR++;
-                        switch (muertosR) {
-                            case 1:
-                                pkmnrival = pkmnrival2;
-                                break;
-                            case 2:
-                                pkmnrival = pkmnrival3;
-                                break;
-                            case 3:
-                                pkmnrival = pkmnrival4;
-                                break;
-                            default:
+                        pkmnrival = trainer.enfrenta();
+                        if (pkmnrival.getDato().getTipo().getHp() <= 0) {
+                            pkmnrival = trainer.enfrenta();
+                            if (pkmnrival == null) {
                                 entrenadoresDerrotados++;
                                 switch (entrenadoresDerrotados) {
                                     case 1:
                                         tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Torneo2.png"));
 
-                                        // Resetea a los muertos
-                                        muertosR = 0;
-                                        muertos = 0;
-
-                                        // Resetea al jugador
                                         pkmnplayer1 = player.enfrenta();
                                         pkmnplayer2 = player.enfrenta();
                                         pkmnplayer3 = player.enfrenta();
@@ -1219,30 +1040,12 @@ public class MainBattle extends javax.swing.JFrame {
                                         player.encola(pkmnplayer3);
                                         player.encola(pkmnplayer4);
 
-                                        resetearStats(pkmnplayer1);
-                                        resetearStats(pkmnplayer2);
-                                        resetearStats(pkmnplayer3);
-                                        resetearStats(pkmnplayer4);
+                                        trainer.encola(trainer2.enfrenta());
+                                        trainer.encola(trainer2.enfrenta());
+                                        trainer.encola(trainer2.enfrenta());
+                                        trainer.encola(trainer2.enfrenta());
 
-                                        // Cambia al entrenador
-                                        trainer = trainer2;
-
-                                        pkmnrival1 = pkmnrival12;
-                                        pkmnrival2 = pkmnrival22;
-                                        pkmnrival3 = pkmnrival32;
-                                        pkmnrival4 = pkmnrival42;
-
-                                        trainer.encola(pkmnrival1);
-                                        trainer.encola(pkmnrival2);
-                                        trainer.encola(pkmnrival3);
-                                        trainer.encola(pkmnrival4);
-
-                                        resetearStats(pkmnrival1);
-                                        resetearStats(pkmnrival2);
-                                        resetearStats(pkmnrival3);
-                                        resetearStats(pkmnrival4);
-
-                                        pkmnrival = pkmnrival1;
+                                        pkmnrival = trainer.enfrenta();
                                         pkmnplayer = pkmnplayer1;
 
                                         // Se actualizan los graficos
@@ -1267,30 +1070,12 @@ public class MainBattle extends javax.swing.JFrame {
                                         player.encola(pkmnplayer3);
                                         player.encola(pkmnplayer4);
 
-                                        resetearStats(pkmnplayer1);
-                                        resetearStats(pkmnplayer2);
-                                        resetearStats(pkmnplayer3);
-                                        resetearStats(pkmnplayer4);
+                                        trainer.encola(trainer3.enfrenta());
+                                        trainer.encola(trainer3.enfrenta());
+                                        trainer.encola(trainer3.enfrenta());
+                                        trainer.encola(trainer3.enfrenta());
 
-                                        // Cambia al entrenador
-                                        trainer = trainer2;
-
-                                        pkmnrival1 = trainer.enfrenta();
-                                        pkmnrival2 = trainer.enfrenta();
-                                        pkmnrival3 = trainer.enfrenta();
-                                        pkmnrival4 = trainer.enfrenta();
-
-                                        trainer.encola(pkmnrival1);
-                                        trainer.encola(pkmnrival2);
-                                        trainer.encola(pkmnrival3);
-                                        trainer.encola(pkmnrival4);
-
-                                        resetearStats(pkmnrival1);
-                                        resetearStats(pkmnrival2);
-                                        resetearStats(pkmnrival3);
-                                        resetearStats(pkmnrival4);
-
-                                        pkmnrival = pkmnrival1;
+                                        pkmnrival = trainer.enfrenta();
                                         pkmnplayer = pkmnplayer1;
 
                                         // Se actualizan los graficos
@@ -1299,18 +1084,15 @@ public class MainBattle extends javax.swing.JFrame {
 
                                         JLVidaPlayer.setText(String.valueOf(pkmnplayer.getDato().getTipo().getHp()));
                                         JLPkmnPlayer.setIcon(pkmnplayer.getDato().getImg());
-
-                                        JLInfo.setText("Combate 2");
+                                        JLInfo.setText("Combate 3");
                                         break;
                                     case 3:
                                         tor.JLTorneo.setIcon(new javax.swing.ImageIcon("src/TorneoImg/Winner.png"));
                                         this.setVisible(false);
                                         break;
                                 }
-                                break;
+                            }
                         }
-                    } else {
-                        System.out.println(pkmnrival);
                     }
                 }
 
